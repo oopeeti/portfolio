@@ -1,11 +1,23 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import Header from "../components/header";
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+function HomePage() {
   return (
-    <div>Hello World</div>
-  )
+    <div className="">
+      {/* Header */}
+      <Header />
+
+      {/* Hero */}
+      
+      {/* About */}
+      
+      {/* Experience */}
+
+      {/* Skills */}
+
+      {/* Contact Me */}
+    
+    </div>
+  );
 }
+
+export default HomePage;

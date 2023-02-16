@@ -16,6 +16,7 @@ function HomePage() {
       <section id="about" className="snap-center">
         <About />
       </section>
+      
       {/* Experience */}
 
       {/* Skills */}

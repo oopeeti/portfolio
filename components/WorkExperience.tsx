@@ -18,9 +18,24 @@ function WorkExperience({}: Props) {
       </h3>
 
       <div className="w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory">
-        <ExperienceCard />
-        <ExperienceCard />
-        <ExperienceCard />
+        <ExperienceCard
+          companyLogo={"probot.png"}
+          role={"Software Engineer"}
+          location={"Oulu, Finland"}
+          workTime={"01.04.2021 - Current"}
+        />
+        <ExperienceCard
+          companyLogo={"probot.png"}
+          role={"Software Engineer"}
+          location={"Oulu, Finland"}
+          workTime={"01.04.2021 - Current"}
+        />
+        <ExperienceCard
+          companyLogo={"probot.png"}
+          role={"Software Engineer"}
+          location={"Oulu, Finland"}
+          workTime={"01.04.2021 - Current"}
+        />
       </div>
     </motion.div>
   );

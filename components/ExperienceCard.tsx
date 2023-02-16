@@ -25,13 +25,13 @@ function ExperienceCard({ role, companyLogo, location, workTime }: Props) {
 
       <div className="px-0 md:px-10">
         <h4 className="text-4xl font-light">{role}</h4>
-        <p className="font-bold text-2xl mt-1">{location}</p>
-        <div className="flex space-x-2 my-2">
+        <p className="font-bold text-2xl py-1">{location}</p>
+        <div className="flex space-x-3 py-5">
           <img className="h-10 w-10 rounded-full" src="probot.png" alt="" />
           <img className="h-10 w-10 rounded-full" src="probot.png" alt="" />
           <img className="h-10 w-10 rounded-full" src="probot.png" alt="" />
         </div>
-        <p className="uppercase py-5 text-gray-300">{workTime}</p>
+        <p className="uppercase py-2 text-gray-300">{workTime}</p>
 
         <ul className="list-disc space-y-4 ml-5 text-lg">
           <li>Summary points</li>

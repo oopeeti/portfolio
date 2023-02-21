@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -8,9 +8,7 @@ export default async function RootLayout({
   return (
     <html>
       <head />
-      <body>
-        <div>{children}</div>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

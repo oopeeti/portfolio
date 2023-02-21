@@ -10,8 +10,8 @@ function About({}: Props) {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      className="flex flex-row relative h-screen text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
+      <h3 className="text-center top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         About
       </h3>
 
@@ -29,7 +29,7 @@ function About({}: Props) {
           <span className="underline decoration-[#F7AB0A]/50">little</span>{" "}
           background
         </h4>
-        <p className="text-base">
+        <div className="text-base">
           <p className="mb-5">
             Hello and welcome! My name is Olli-Pekka Nikka, and I am a
             self-taught software engineer from Finland who is passionate about
@@ -71,7 +71,7 @@ function About({}: Props) {
             engineer who is always eager to learn and solve problems, I would be
             thrilled to discuss how I can contribute to your next project.
           </p>
-        </p>
+        </div>
       </div>
     </motion.div>
   );

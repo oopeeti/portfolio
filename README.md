@@ -56,6 +56,11 @@ npm install npm@latest -g
    ```sh
    npm install
    ```
+   
+### Running Locally
+   ```sh
+   npm run dev
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

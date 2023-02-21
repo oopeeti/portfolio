@@ -45,11 +45,14 @@ npm install npm@latest -g
 
 ### Installation
 
-1. Clone the repo
    ```sh
    git clone https://github.com/oopeeti/modern-portfolio.git
    ```
-2. Install NPM packages
+   
+   ```sh
+   cd modern-portfolio
+   ```
+   
    ```sh
    npm install
    ```

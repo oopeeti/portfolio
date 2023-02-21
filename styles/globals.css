@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
+
 @layer components {
     .heroButton {
-        @apply px-6 py-2 border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 
+        @apply border-[#242424] uppercase text-xl tracking-widest text-gray-400 
         transition-all hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40
     }
 

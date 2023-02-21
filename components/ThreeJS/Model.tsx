@@ -9,7 +9,7 @@ import {
   useThree,
 } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 type ModelProps = ThreeElements["mesh"] & {
   path: string;
@@ -18,13 +18,29 @@ type ModelProps = ThreeElements["mesh"] & {
 function Model({ path, ...props }: ModelProps) {
   const gltf = useLoader(GLTFLoader, path); // replace with your own model path
   const mesh = useRef<THREE.Mesh>(null);
-  useFrame(() => {
-    if (mesh.current) {
-      mesh.current.rotation.x += 0.0; // rotate around the X axis
-      mesh.current.rotation.y += 0.0025; // rotate around the Y axis
-      mesh.current.rotation.z += 0.0; // rotate around the Z axis
-    }
+  const [mixer, setMixer] = useState<THREE.AnimationMixer | null>(null);
+  const clock = useRef<THREE.Clock>(new THREE.Clock());
+
+  useFrame((state, delta) => {
+    if (mixer) mixer.update(delta);
   });
+
+  const { scene, animations } = gltf;
+
+  useLayoutEffect(() => {
+    if (mesh.current && animations.length > 0) {
+      const mixer = new THREE.AnimationMixer(mesh.current);
+      const animation = animations[1];
+
+      console.log(animations);
+
+      const action = mixer.clipAction(animation);
+      action.play();
+
+      setMixer(mixer);
+    }
+  }, [animations, mesh]);
+
   return (
     <mesh {...props} ref={mesh}>
       <primitive object={gltf.scene} />
@@ -34,7 +50,11 @@ function Model({ path, ...props }: ModelProps) {
 
 function CameraControls() {
   const { camera } = useThree();
-  camera.position.set(0, 0.5, 2); // set the camera position here
+  camera.position.set(0, 0.6, 2);
+  camera.rotation.set(-0.4, 0, 0);
+  camera.near = 0.1; // set the near clipping plane to 0.1
+  camera.far = 1000; // set the far clipping plane to 1000
+  camera.updateProjectionMatrix(); // set the camera position here// update the camera's projection matrix
   return null;
 }
 
@@ -46,7 +66,7 @@ export default function ThreeScene({ modelPath }: ThreeSceneProps) {
   return (
     <Canvas>
       <ambientLight />
-      <pointLight position={[10, 10, 50]} />
+      <pointLight position={[4, 10, 1]} />
       <Model path={modelPath} />
       <CameraControls />
     </Canvas>

@@ -3,8 +3,8 @@ import Link from "next/link";
 
 function Navigation() {
   return (
-    <header className="absolute flex flex-row items-center justify-center z-20">
-      <div className="flex pt-5 text-white">
+    <header className="flex flex-row z-20">
+      <div className="text-white space-x-10 my-5 z-20">
         <a href="#about">
           <button className="heroButton">About</button>
         </a>

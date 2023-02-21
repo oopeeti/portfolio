@@ -8,10 +8,11 @@ import ContactMe from "../components/ContactMe";
 import Stars from "../components/ThreeJS/Stars";
 import { motion } from "framer-motion";
 import Model from "../components/ThreeJS/Model";
+import Navigation from "../components/Navigation";
 
 function HomePage() {
   return (
-    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+    <div className="flex flex-col bg-[rgb(36,36,36)] text-white h-screen snap-y overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

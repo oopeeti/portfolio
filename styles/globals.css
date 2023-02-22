@@ -8,7 +8,7 @@ html {
 
 @layer components {
     .heroButton {
-        @apply border-[#242424] uppercase text-xl tracking-widest text-gray-400 
+        @apply border-[#242424] uppercase text-sm tracking-widest text-gray-400 
         transition-all hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40
     }
 

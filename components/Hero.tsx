@@ -20,18 +20,19 @@ function Hero({}: Props) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
-            className="flex justify-evenly mx-20 items-center">
+            className="flex items-center mx-5">
             <div className="relative h-screen w-screen">
-                <div className="absolute left-0 top-1/2 z-0">
-                    <h2 className="text-md uppercase text-gray-500 tracking-[10px]">
+                <div className="absolute bottom-10 left-10 z-0">
+                    <h2 className="text-lg uppercase text-gray-500 mb-3 tracking-[10px]">
                         Software Engineer
                     </h2>
-                    <h1 className="text-4xl lg:text-6xl font-semibold my-5 scroll-px-10">
+                    <h1 className="text-4xl lg:text-7xl font-semibold mb-3 scroll-px-10">
                         <span className="mr-3">{text}</span>
                         <Cursor cursorColor="#F7AB0A" />
                     </h1>
                     <Navigation />
                 </div>
+            
                 {/* 
       <div className="absolute top-1/4 h-screen w-screen">
         <Model modelPath={"/models/avatar.glb"} />

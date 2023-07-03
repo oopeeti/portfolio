@@ -46,11 +46,11 @@ npm install npm@latest -g
 ### Installation
 
    ```sh
-   git clone https://github.com/oopeeti/modern-portfolio.git
+   git clone https://github.com/oopeeti/portfolio.git
    ```
    
    ```sh
-   cd modern-portfolio
+   cd portfolio
    ```
    
    ```sh
@@ -62,16 +62,7 @@ npm install npm@latest -g
    npm run dev
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p
 
 
 <!-- CONTACT -->

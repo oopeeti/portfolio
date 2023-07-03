@@ -13,7 +13,7 @@ import SocialLinks from "../components/SocialLinks";
 
 function HomePage() {
   return (
-    <div className="flex flex-col bg-[rgb(36,36,36)] text-white h-screen snap-y overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+    <div className="flex flex-col bg-[rgb(36,36,36)] text-white h-screen snap-y overflow-y-scroll scroll-smooth overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -26,16 +26,12 @@ function HomePage() {
         <Hero title="Software Engineer, XR Developer" />
       </section>
 
-      <section id="about" className="snap-center">
+      <section id="about" className="">
         <About />
       </section>
 
-      <section id="experience" className="snap-center">
+      <section id="experience" className="">
         <WorkExperience />
-      </section>
-
-      <section id="skills" className="snap-start">
-        <Skills />
       </section>
 
       {/*
@@ -45,7 +41,7 @@ function HomePage() {
       */}
 
       {/* Contact Me */}
-      <section id="contact" className="snap-start">
+      <section id="contact" className="">
         <ContactMe />
       </section>
 

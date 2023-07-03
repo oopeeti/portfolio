@@ -33,8 +33,6 @@ function HomePage() {
       <section id="contact" className="snap-center">
         <ContactMe />
       </section>
-
-      <a href="#hero"></a>
     </div>
   );
 }

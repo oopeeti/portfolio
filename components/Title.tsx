@@ -6,7 +6,7 @@ type Props = {
 
 export default function Title({ title }: Props) {
   return (
-    <h3 className="uppercase tracking-[20px] text-gray-500 text-2xl my-11">
+    <h3 className="uppercase tracking-[20px] text-gray-500 text-2xl my-16">
       {title}
     </h3>
   );

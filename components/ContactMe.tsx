@@ -1,7 +1,7 @@
 "use client";
 
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
-import { OrthographicCamera } from "@react-three/drei";
+import { OrthographicCamera, PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -10,18 +10,18 @@ import Title from "./Title";
 
 function ContactMe() {
   return (
-    <div className="h-screen relative flex flex-col text-center w-full px-10 justify-evenly mx-auto items-center">
+    <div className="h-screen relative flex flex-col text-center w-full justify-evenly items-center">
       <Title title="Contact" />
       <Suspense fallback={null}>
-        <Canvas shadows>
-          <OrthographicCamera position={[0, -1, 0]} rotation={[0.1, 0, 0]}>
-            <Model modelPath={"models/avatar.glb"} scale={3} />
-          </OrthographicCamera>
+        <Canvas>
+          <PerspectiveCamera position={[0, -1, -0.7]} rotation={[0.2, 0, 0]}>
+            <Model modelPath={"models/avatar.glb"} scale={4.1} />
+          </PerspectiveCamera>
         </Canvas>
       </Suspense>
 
-      <div className="flex flex-col space-y-28 max-w-7xl p-10">
-        <h4 className="text-4xl font-semibold text-center">
+      <div className="flex flex-col space-y-16 max-w-7xl p-10">
+        <h4 className="text-lg md:text-2xl font-semibold text-center">
           <span className="decoration-[#F7AB0A]/50 underline">Thank you </span>
           for taking the time to get to know me a little better. If you are
           looking for a dedicated, curious, and skilled software engineer who is

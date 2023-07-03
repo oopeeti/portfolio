@@ -11,7 +11,7 @@ function About({}: Props) {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="flex flex-col relative h-screen text-center w-full px-10 justify-evenly mx-auto items-center">
+      className="flex flex-col relative text-center w-full px-10 justify-evenly mx-auto items-center">
       <Title title="About me" />
 
       <motion.img
@@ -19,15 +19,14 @@ function About({}: Props) {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.2 }}
         src="profile.jpeg"
-        className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-2xl object-cover xl:w-[400px] xl:h-[400px]"
+        className="mb-10 w-56 h-56 rounded-2xl object-cover xl:w-[400px] xl:h-[400px]"
       />
 
       <div className="flex flex-col items-center space-y-16 px-0 md:px-10 max-w-7xl ">
         <h4 className="text-4xl font-semibold">
-          {" "}
-          <span className="color-[#F7AB0A]">Olli-Pekka Nikka</span>{" "}
+          <h1 className="color-[#F7AB0A]">Olli-Pekka Nikka</h1>{" "}
         </h4>
-        <div className="text-2xl tracking-wider space-y-10">
+        <div className="md:text-2xl tracking-widest space-y-10 text-sm">
           <p className="mb-5">
             Hello there! I'm a passionate problem solver with a deep-seated love
             for technology and its transformative potential. My approach to

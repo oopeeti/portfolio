@@ -26,7 +26,7 @@ function ExperienceCard({
   extra,
 }: Props) {
   return (
-    <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden">
+    <article className="flex flex-col rounded-lg w-full max-w-3xl items-center scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 space-y-7 flex-1 overflow-y-scroll snap-center bg-[#292929] p-10 hover:opacity-100 opacity-60 cursor-pointer transition-opacity duration-200 ">
       <motion.img
         initial={{
           y: -100,
@@ -35,23 +35,25 @@ function ExperienceCard({
         transition={{ duration: 0.5 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
+        className="w-20 h-20 md:w-28 md:h-28 rounded-full flex-shrink-0 object-cover object-center"
         src={companyLogo}
         alt="probot-logo"
       />
 
-      <div className="px-0 md:px-10">
-        <h4 className="text-4xl font-light">{role}</h4>
-        <p className="font-bold text-2xl py-1">{location}</p>
-        <p className="uppercase py-4 text-gray-300">{workTime}</p>
-        <div className="flex items-center space-x-5 py-10">
+      <div className="flex flex-col justify-center items-left">
+        <h4 className="text-lg md:text-2xl pb-2 font-light">{role}</h4>
+        <p className="font-bold text-md md:text-xl py-1">{location}</p>
+        <p className="uppercase py-2 text-gray-300 text-sm md:text-md">
+          {workTime}
+        </p>
+        <div className="flex items-center space-x-5 py-7">
           {technologies?.map((tech) => (
             <img className="h-10 w-10 rounded-md" src={tech.logo} alt="" />
           ))}
-          {extra && <h1 className="uppercase text-2xl">{extra}</h1>}
+          {extra && <h1 className="uppercase text-md md:text-xl">{extra}</h1>}
         </div>
 
-        <ul className="list-disc space-y-4 ml-5 text-lg">
+        <ul className="list-disc space-y-2 ml-5 text-sm md:text-md lg:text-lg tracking-widest">
           {skills.map((skill) => (
             <li>{skill}</li>
           ))}

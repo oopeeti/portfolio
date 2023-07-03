@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 
 function Navigation() {
   return (
@@ -17,8 +16,10 @@ function Navigation() {
           <button className="heroButton">Skills</button>
         </a>
 
-        <a href="/projects">
-          <button className="heroButton">Projects</button>
+        <a aria-disabled>
+          <button className="heroButton line-through">
+            Projects (Coming Soon)
+          </button>
         </a>
       </div>
     </header>

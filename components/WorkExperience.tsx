@@ -48,6 +48,7 @@ function WorkExperience() {
             "Internal development of software developer ecosystem and DevOps, including version control and best practices",
           ]}
           technologies={[typescript, python]}
+          extra={"Unreal | Blender | Git"}
         />
         <ExperienceCard
           companyLogo={"nsc.png"}

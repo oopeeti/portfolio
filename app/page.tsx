@@ -2,14 +2,10 @@
 
 import About from "../components/About";
 import WorkExperience from "../components/WorkExperience";
-import Skills from "../components/Skills";
 import Hero from "../components/Hero";
 import ContactMe from "../components/ContactMe";
 import Stars from "../components/ThreeJS/Stars";
 import { motion } from "framer-motion";
-import Model from "../components/ThreeJS/Model";
-import Navigation from "../components/Navigation";
-import SocialLinks from "../components/SocialLinks";
 
 function HomePage() {
   return (
@@ -26,39 +22,19 @@ function HomePage() {
         <Hero title="Software Engineer, XR Developer" />
       </section>
 
-      <section id="about" className="">
+      <section id="about" className="snap-center">
         <About />
       </section>
 
-      <section id="experience" className="">
+      <section id="experience" className="snap-center">
         <WorkExperience />
       </section>
 
-      {/*
-        <section id="projects" className="snap-start">
-        <Projects />
-      </section>
-      */}
-
-      {/* Contact Me */}
-      <section id="contact" className="">
+      <section id="contact" className="snap-center">
         <ContactMe />
       </section>
 
-      <a href="#hero">
-        <footer className="sticky bottom-5 w-full cursor-pointer">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.5 }}
-            className=" flex items-center justify-center">
-            <img
-              src="profile.jpeg"
-              className="w-10 h-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer transition-all duration-100"
-            />
-          </motion.div>
-        </footer>
-      </a>
+      <a href="#hero"></a>
     </div>
   );
 }

@@ -19,7 +19,6 @@ function Model({ path, ...props }: ModelProps) {
   const gltf = useLoader(GLTFLoader, path); // replace with your own model path
   const mesh = useRef<THREE.Mesh>(null);
   const [mixer, setMixer] = useState<THREE.AnimationMixer | null>(null);
-  const clock = useRef<THREE.Clock>(new THREE.Clock());
 
   useFrame((state, delta) => {
     if (mixer) mixer.update(delta);
@@ -60,15 +59,15 @@ function CameraControls() {
 
 type ThreeSceneProps = {
   modelPath: string;
+  scale: number;
 };
 
-export default function ThreeScene({ modelPath }: ThreeSceneProps) {
+export default function ThreeScene({ modelPath, scale }: ThreeSceneProps) {
   return (
-    <Canvas>
+    <>
       <ambientLight />
       <pointLight position={[4, 10, 1]} />
-      <Model path={modelPath} />
-      <CameraControls />
-    </Canvas>
+      <Model path={modelPath} scale={new THREE.Vector3(scale, scale, scale)} />
+    </>
   );
 }

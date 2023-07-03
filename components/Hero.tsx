@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Navigation from "./Navigation";
 import SocialLinks from "./SocialLinks";
 import Model from "./ThreeJS/Model";
+import { Canvas } from "@react-three/fiber";
 
 type HeroProps = {
   title: string;
@@ -25,7 +26,7 @@ function Hero({ title }: HeroProps) {
       className="flex justify-evenly mx-20 items-center">
       <div className="relative h-screen w-screen">
         <div className="absolute left-0 top-1/2 z-0">
-          <h2 className="text-md uppercase text-gray-500 tracking-[10px]">
+          <h2 className="text-lg uppercase text-gray-500 tracking-[10px]">
             {title}
           </h2>
           <h1 className="text-4xl lg:text-6xl font-semibold my-5 scroll-px-10">
@@ -34,11 +35,6 @@ function Hero({ title }: HeroProps) {
           </h1>
           <Navigation />
         </div>
-        {/* 
-      <div className="absolute top-1/4 h-screen w-screen">
-        <Model modelPath={"/models/avatar.glb"} />
-      </div>
-      */}
       </div>
       <SocialLinks />
     </motion.div>

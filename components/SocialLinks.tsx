@@ -9,13 +9,13 @@ export default function SocialLinks() {
                 url="https://www.linkedin.com/in/oopeeti"
                 fgColor="white"
                 bgColor="transparent"
-                className="opacity-75 hover:opacity-100 w-20 h-20 transition-all duration-100"
+                className="opacity-75 hover:opacity-100 w-20 h-20 transition-all duration-200"
             />
             <SocialIcon
                 url="https://github.com/oopeeti"
                 fgColor="white"
                 bgColor="transparent"
-                className="opacity-75 hover:opacity-100 w-20 h-20 transition-all duration-100"
+                className="opacity-75 hover:opacity-100 w-20 h-20 transition-all duration-200"
             />
         </div>
     );

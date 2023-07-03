@@ -19,12 +19,12 @@ function About({}: Props) {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.2 }}
         src="profile.jpeg"
-        className="mb-10 w-56 h-56 rounded-2xl object-cover xl:w-[400px] xl:h-[400px]"
+        className="mb-10 w-44 h-44 rounded-full object-cover xl:w-[350px] xl:h-[350px]"
       />
 
       <div className="flex flex-col items-center space-y-16 px-0 md:px-10 max-w-7xl ">
         <h4 className="text-4xl font-semibold">
-          <h1 className="color-[#F7AB0A]">Olli-Pekka Nikka</h1>{" "}
+          <h1 className="py-5">Olli-Pekka Nikka</h1>{" "}
         </h4>
         <div className="md:text-2xl tracking-widest space-y-10 text-sm">
           <p className="mb-5">

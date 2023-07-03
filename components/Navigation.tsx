@@ -3,7 +3,7 @@
 function Navigation() {
   return (
     <header className="flex flex-row z-20">
-      <div className="text-white space-x-4 my-2 z-20">
+      <div className="text-white  space-x-4 my-2 z-20">
         <a href="#about">
           <button className="heroButton">About</button>
         </a>

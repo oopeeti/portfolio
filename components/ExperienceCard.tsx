@@ -53,7 +53,7 @@ function ExperienceCard({
           {extra && <h1 className="uppercase text-md md:text-xl">{extra}</h1>}
         </div>
 
-        <ul className="list-disc space-y-2 ml-5 text-sm md:text-md lg:text-lg tracking-widest">
+        <ul className="list-disc space-y-5 ml-5 text-sm md:text-md lg:text-xl tracking-widest">
           {skills.map((skill) => (
             <li>{skill}</li>
           ))}

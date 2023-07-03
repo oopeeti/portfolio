@@ -21,8 +21,8 @@ function ContactMe() {
       </Suspense>
 
       <div className="flex flex-col space-y-16 max-w-7xl p-10">
-        <h4 className="text-lg md:text-2xl font-semibold text-center">
-          <span className="decoration-[#F7AB0A]/50 underline">Thank you </span>
+        <h4 className="text-xl md:text-4xl font-semibold text-center">
+          <span className="text-[#F7AB0A]">Thank you </span>
           for taking the time to get to know me a little better. If you are
           looking for a dedicated, curious, and skilled software engineer who is
           always eager to learn and solve problems, I would be thrilled to

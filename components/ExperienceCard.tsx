@@ -5,9 +5,24 @@ type Props = {
   role: string;
   location: string;
   workTime: string;
+  skills: string[];
+  technologies?: TechnologyPin[];
 };
 
-function ExperienceCard({ role, companyLogo, location, workTime }: Props) {
+type TechnologyPin = {
+  logo: string;
+  name?: string;
+  level?: number;
+};
+
+function ExperienceCard({
+  role,
+  companyLogo,
+  location,
+  workTime,
+  skills,
+  technologies,
+}: Props) {
   return (
     <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden">
       <motion.img
@@ -27,16 +42,16 @@ function ExperienceCard({ role, companyLogo, location, workTime }: Props) {
         <h4 className="text-4xl font-light">{role}</h4>
         <p className="font-bold text-2xl py-1">{location}</p>
         <div className="flex space-x-3 py-5">
-          <img className="h-10 w-10 rounded-full" src="probot.png" alt="" />
-          <img className="h-10 w-10 rounded-full" src="probot.png" alt="" />
-          <img className="h-10 w-10 rounded-full" src="probot.png" alt="" />
+          {technologies?.map((tech) => (
+            <img className="h-10 w-10 rounded-md" src={tech.logo} alt="" />
+          ))}
         </div>
         <p className="uppercase py-2 text-gray-300">{workTime}</p>
 
         <ul className="list-disc space-y-4 ml-5 text-lg">
-          <li>Summary points</li>
-          <li>Summary points</li>
-          <li>Summary points</li>
+          {skills.map((skill) => (
+            <li>{skill}</li>
+          ))}
         </ul>
       </div>
     </article>

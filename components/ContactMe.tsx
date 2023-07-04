@@ -9,7 +9,7 @@ import Title from "./Title";
 
 function ContactMe() {
   return (
-    <div className="h-full relative flex flex-col text-center w-full justify-evenly items-center">
+    <div className="h-screen relative flex flex-col text-center w-full justify-evenly items-center">
       <Title title="Contact" />
       <Suspense fallback={null}>
         <Canvas className="w-full h-full ">

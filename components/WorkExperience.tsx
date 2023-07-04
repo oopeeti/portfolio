@@ -28,11 +28,10 @@ function WorkExperience() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="flex flex-col relative h-screen text-center px-0 justify-evenly mx-auto items-center"
-    >
-      <Title title="Work Experience" />
+      className="flex flex-col w-full text-center items-center">
+      <Title title="Experience" />
 
-      <div className="w-full flex flex-col space-y-5 overflow-y-scroll items-center justify-center text-left p-10 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+      <div className="w-full h-full z-0 flex flex-col space-y-5 items-center justify-center text-left px-3">
         <ExperienceCard
           companyLogo={"probot.png"}
           role={"Software Engineer, XR Developer"}

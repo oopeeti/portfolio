@@ -24,7 +24,7 @@ export default function Card({
   showReadMore = true,
 }: CardProps) {
   return (
-    <div className="flex flex-col h-full  bg-gray-900 shadow-2xl rounded-lg overflow-hidden">
+    <div className="flex flex-col h-full  bg-gray-900 shadow-lg rounded-lg overflow-hidden">
       <div className="w-full h-full">
         <Image
           src={imageSrc}
@@ -34,7 +34,7 @@ export default function Card({
           layout="responsive"
         />
         <div className="flex flex-col space-y-1">
-          <div className="pt-7 px-7 flex flex-row space-x-2 uppercase">
+          <div className="pt-7 px-6 flex flex-row space-x-2 uppercase">
             {tags?.map((tag, i) => (
               <Tag title={tag.title} color={tag.color} />
             ))}
@@ -42,7 +42,7 @@ export default function Card({
         </div>
       </div>
 
-      <div className="flex flex-col p-7 space-y-5">
+      <div className="flex flex-col p-6 space-y-5">
         <h1 className="title-font text-3xl font-medium text-white">{title}</h1>
         <p className="mb-6 font-normal text-gray-300">{description}</p>
         <div className="flex flex-row items-center flex-wrap">

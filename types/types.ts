@@ -3,3 +3,8 @@ export type TechnologyPin = {
   name?: string;
   level?: number;
 };
+
+export type TagProps = {
+  title: string;
+  color: string;
+};

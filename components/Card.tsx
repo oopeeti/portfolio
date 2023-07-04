@@ -1,61 +1,58 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import Tag from "./Tag";
+import { TagProps } from "../types/types";
+import { ArrowRightCircleIcon } from "@heroicons/react/24/solid";
 
 interface CardProps {
   title: string;
   imageSrc: string;
   description: string;
   projectLink: string;
+  tags: TagProps[];
+  extra?: TagProps[];
+  showReadMore?: boolean;
 }
 
-const Card: React.FC<CardProps> = ({
+export default function Card({
   title,
   imageSrc,
   description,
+  tags,
   projectLink,
-}) => {
+  extra,
+  showReadMore = true,
+}: CardProps) {
   return (
-    <div className="p-4 md:w-1/2 md" style={{ maxWidth: "540px" }}>
-      <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-        <Image
-          className="lg:h-48 md:h-36 w-full object-cover object-center"
-          src={imageSrc}
-          alt={title}
-          height={36}
-          width={36}
-          layout="responsive"
-        />
-        <div className="p-6">
-          <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
-            {title}
-          </h2>
-          <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-            {title}
-          </h1>
-          <p className="leading-relaxed mb-3">{description}</p>
-          <div className="flex items-center flex-wrap ">
-            <a href={projectLink}>
-              <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
-                Learn More
-                <svg
-                  className="w-4 h-4 ml-2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
-            </a>
+    <div className="flex flex-col h-full  bg-gray-900 shadow-2xl rounded-lg overflow-hidden">
+      <div className="w-full h-full">
+        <Image src={imageSrc} alt={title} height={600} width={500} layout="responsive" />
+        <div className="flex flex-col space-y-1">
+          <div className="pt-7 px-7 flex flex-row space-x-2 uppercase">
+            {tags?.map((tag, i) => (
+              <Tag title={tag.title} color={tag.color} />
+            ))}
           </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col p-7 space-y-5">
+        <h1 className="title-font text-3xl font-medium text-white">{title}</h1>
+        <p className="mb-6 text-white">{description}</p>
+        <div className="flex flex-row items-center flex-wrap">
+          {showReadMore && (
+            <a href={projectLink} target="_blank">
+              <button
+                type="button"
+                className="text-white duration-200 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                Read more (In Finnish)
+                <ArrowRightCircleIcon className="h-7 w-7 pl-2" />
+              </button>
+            </a>
+          )}
         </div>
       </div>
     </div>
   );
-};
-
-export default Card;
+}

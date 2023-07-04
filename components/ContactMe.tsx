@@ -1,10 +1,9 @@
 "use client";
 
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
-import { OrthographicCamera, PerspectiveCamera } from "@react-three/drei";
+import { PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
 import Model from "./ThreeJS/Model";
 import Title from "./Title";
 
@@ -23,10 +22,9 @@ function ContactMe() {
       <div className="flex flex-col space-y-16 max-w-7xl p-10">
         <h4 className="text-xl md:text-4xl font-semibold text-center">
           <span className="text-[#F7AB0A]">Thank you </span>
-          for taking the time to get to know me a little better. If you are
-          looking for a dedicated, curious, and skilled software engineer who is
-          always eager to learn and solve problems, I would be thrilled to
-          discuss how I can contribute to your next project.
+          for taking the time to get to know me a little better. If you are looking for a dedicated,
+          curious, and skilled software engineer who is always eager to learn and solve problems, I
+          would be thrilled to discuss how I can contribute to your next project.
         </h4>
 
         <div className="space-y-5">

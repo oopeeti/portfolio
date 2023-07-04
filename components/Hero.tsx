@@ -4,8 +4,6 @@ import { Cursor, useTypewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 import Navigation from "./Navigation";
 import SocialLinks from "./SocialLinks";
-import Model from "./ThreeJS/Model";
-import { Canvas } from "@react-three/fiber";
 
 type HeroProps = {
   title: string;

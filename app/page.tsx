@@ -16,8 +16,7 @@ function HomePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
-          className="absolute w-screen h-screen"
-        >
+          className="absolute w-screen h-screen">
           <Stars />
         </motion.div>
       </Suspense>
@@ -26,15 +25,15 @@ function HomePage() {
         <Hero title="Software Engineer, XR Developer" />
       </section>
 
-      <section id="about" className="snap-center">
+      <section id="about" className="">
         <About />
       </section>
 
-      <section id="experience" className="snap-center">
+      <section id="experience" className="">
         <WorkExperience />
       </section>
 
-      <section id="contact" className="snap-center">
+      <section id="contact" className="">
         <ContactMe />
       </section>
     </div>

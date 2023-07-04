@@ -5,24 +5,27 @@ import Title from "../../components/Title";
 import Card from "../../components/Card";
 import HomeButton from "../../components/HomeButton";
 import { TagProps } from "../../types/types";
+import { motion } from "framer-motion";
+import { Stars } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 
 export default function ProjectPage() {
   const MimicTags: TagProps[] = [
-    { title: "Unreal Engine 4", color: "#F7AB0A" },
+    { title: "Unreal Engine", color: "#F7AB0A" },
     { title: "Teleoperation", color: "#F7AB0A" },
     { title: "XR", color: "#F7AB0A" },
     // Add more tags as needed
   ];
 
   const EdisonTags: TagProps[] = [
-    { title: "Unreal Engine 5", color: "#F7AB0A" },
+    { title: "Unreal Engine", color: "#F7AB0A" },
     { title: "POC", color: "#F7AB0A" },
     { title: "XR", color: "#F7AB0A" },
     // Add more tags as needed
   ];
 
   const MagosUEIntegrationTags: TagProps[] = [
-    { title: "Unreal Engine 5", color: "#F7AB0A" },
+    { title: "Unreal Engine", color: "#F7AB0A" },
     { title: "XR", color: "#F7AB0A" },
     { title: "Tools", color: "#F7AB0A" },
     // Add more tags as needed

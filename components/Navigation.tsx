@@ -19,7 +19,7 @@ function Navigation() {
       <a aria-disabled>
         <div className="flex flex-row items-center justify-center space-x-2">
           <button className="heroButton line-through opacity-50">Skills</button>
-          <WrenchScrewdriverIcon className="h-4 w-4 my-2 opacity-50 text-[#F7AB0A] " />
+          <WrenchScrewdriverIcon className="h-4 w-4 opacity-50 text-[#F7AB0A] " />
         </div>
       </a>
     </div>

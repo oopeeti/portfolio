@@ -16,10 +16,10 @@ export default function Stars() {
 }
 
 function GenerateStars(props: JSX.IntrinsicElements["group"]) {
-  const [color, setColor] = useState("#ffa0e0");
+  const [color, setColor] = useState("#F7AB0A");
   const ref = useRef<THREE.Points>(null);
   const [sphere] = useState(() =>
-    Float32Array.from(random.inSphere(new Float32Array(10000), { radius: 5 }))
+    Float32Array.from(random.inSphere(new Float32Array(25000), { radius: 6 }))
   );
 
   useFrame((state, delta) => {
@@ -35,7 +35,7 @@ function GenerateStars(props: JSX.IntrinsicElements["group"]) {
         <PointMaterial
           transparent
           color={color}
-          size={0.004}
+          size={0.0075}
           sizeAttenuation={true}
           depthWrite={false}
         />

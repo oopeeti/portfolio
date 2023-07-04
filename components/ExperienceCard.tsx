@@ -40,7 +40,7 @@ function ExperienceCard({
         alt="probot-logo"
       />
 
-      <div className="flex flex-col justify-center items-left">
+      <div className="flex flex-col justify-center items-left w-full">
         <h4 className="text-lg md:text-2xl pb-2 font-light">{role}</h4>
         <p className="font-bold text-md md:text-xl py-1">{location}</p>
         <p className="uppercase py-2 text-gray-300 text-sm md:text-md">{workTime}</p>

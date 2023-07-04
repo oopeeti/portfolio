@@ -12,8 +12,8 @@ function Navigation() {
           <button className="heroButton">Experience</button>
         </a>
 
-        <a href="#skills">
-          <button className="heroButton">Skills</button>
+        <a aria-disabled>
+          <button className="heroButton line-through">Skills</button>
         </a>
 
         <a aria-disabled>

@@ -1,13 +1,7 @@
 "use client";
 
 import * as THREE from "three";
-import {
-  Canvas,
-  useFrame,
-  ThreeElements,
-  useLoader,
-  useThree,
-} from "@react-three/fiber";
+import { useFrame, ThreeElements, useLoader, useThree } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useLayoutEffect, useRef, useState } from "react";
 
@@ -30,8 +24,6 @@ function Model({ path, ...props }: ModelProps) {
     if (mesh.current && animations.length > 0) {
       const mixer = new THREE.AnimationMixer(mesh.current);
       const animation = animations[1];
-
-      console.log(animations);
 
       const action = mixer.clipAction(animation);
       action.play();

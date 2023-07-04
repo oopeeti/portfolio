@@ -15,15 +15,6 @@ function Navigation() {
       <a href="/projects">
         <button className="heroButton">Projects</button>
       </a>
-
-      <a
-        aria-disabled
-        className="flex flex-row items-center justify-center space-x-2">
-        <button className="heroButton flex line-through opacity-50">
-          Skills
-        </button>
-        <WrenchScrewdriverIcon className="w-4 h-4 text-[#F7AB0A]/50 translate-y-0" />
-      </a>
     </div>
   );
 }

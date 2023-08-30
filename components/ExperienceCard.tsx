@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 
 type Props = {
   companyLogo: string;
-  role: string;
-  location: string;
+  company: string;
+  title: string;
   workTime: string;
   skills: string[];
   technologies?: TechnologyPin[];
@@ -17,9 +17,9 @@ type TechnologyPin = {
 };
 
 function ExperienceCard({
-  role,
+  company,
   companyLogo,
-  location,
+  title,
   workTime,
   skills,
   technologies,
@@ -27,16 +27,16 @@ function ExperienceCard({
 }: Props) {
   return (
     <article className="flex flex-col rounded-lg w-full max-w-4xl items-center space-y-7 flex-1 bg-[#292929] p-10 cursor-pointer transition-opacity duration-200 ">
-      <div className="w-full flex flex-row justify-center items-center space-x-10">
+      <div className="w-full flex flex-row justify-center items-center">
         <div className="w-full h-full flex flex-col">
-          <h4 className="text-xl md:text-2xl pb-2 font-light">{role}</h4>
-          <p className="font-bold text-md md:text-xl py-1">{location}</p>
+          <h4 className="text-xl md:text-2xl pb-2 font-light">{company}</h4>
+          <p className="font-bold text-md md:text-xl py-1">{title}</p>
           <p className="uppercase py-2 text-gray-300 text-sm md:text-md">
             {workTime}
           </p>
         </div>
         <img
-          className="w-20 h-20 md:w-28 md:h-28 rounded-full flex-shrink-0 object-cover object-center shadow-sm"
+          className="w-20 h-20 md:w-28 md:h-28 rounded-sm flex-shrink-0 object-cover object-center shadow-sm"
           src={companyLogo}
           alt="logo"
         />

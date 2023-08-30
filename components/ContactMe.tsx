@@ -30,11 +30,6 @@ function ContactMe() {
       </div>
       <div className="space-y-5 text-lg shadow-lg bg-[rgb(34,34,34)] text-gray-100 p-5 my-10 rounded-xl  flex-col items-left justify-center items-center">
         <div className="flex items-left space-x-5 justify-left">
-          <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-          <p>+358404115202</p>
-        </div>
-
-        <div className="flex items-left space-x-5 justify-left">
           <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
           <p>ollipekkanikka@gmail.com</p>
         </div>

@@ -32,11 +32,25 @@ function WorkExperience() {
       <Title title="Experience" />
 
       <div className="w-full h-full z-0 flex flex-col space-y-5 items-center justify-center text-left px-3">
+      <ExperienceCard
+          companyLogo={"zoan_logo.jpg"}
+          company={"ZOAN"}
+          title={"XR Developer"}
+          workTime={"August, 2023 - Current"}
+          skills={[
+            "Design and implementation of XR applications using Unreal Engine 4 & 5",
+            "Pixel Streaming",
+            "AR Development using Unity"
+          ]}
+          technologies={[typescript, python]}
+          extra={"Unreal | Blender | Git"}
+        />
+
         <ExperienceCard
           companyLogo={"probot.png"}
-          role={"Software Engineer, XR Developer"}
-          location={"Oulu, Finland"}
-          workTime={"April, 2021 - Current"}
+          company={"Probot Oy"}
+          title={"Software Engineer, XR Developer"}
+          workTime={"April, 2021 - August, 2023"}
           skills={[
             "Design and implementation of XR applications using Unreal Engine 4 & 5",
             "Full-stack application development, including design, architecture, and coding",
@@ -52,8 +66,8 @@ function WorkExperience() {
         />
         <ExperienceCard
           companyLogo={"nsc.png"}
-          role={"Direct Sales Representatives"}
-          location={"Oulu, Finland"}
+          company={"Nordic Sales Crew"}
+          title={"Direct Sales Representative"}
           workTime={"March, 2019 - November, 2019"}
           skills={[
             "Running door-to-door sales concept with small group",

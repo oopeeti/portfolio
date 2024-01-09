@@ -3,8 +3,10 @@ import {
     CardContent,
 } from "@/components/ui/card"
 import { CustomBadge } from "@/types";
-import { ArrowRightCircleIcon } from "@heroicons/react/24/solid";
 import { Badge } from "../ui/badge";
+import * as Typography from "../Typography/Typography"
+import { Button } from "../ui/button";
+import Image from "next/image";
 
 type JobCardProps = {
     title: string;
@@ -18,35 +20,30 @@ type JobCardProps = {
 
 const ProjectCard = ({ title, imageSrc, description, showReadMore, projectLink, badges }: JobCardProps) => {
     return (
-        <Card className={`flex flex-col bg-black bg-opacity-20 overflow-hidden border-none max-w-[680px] shadow-2xl`}>
-            <div className="flex flex-1 items-center justify-center">
-                <img
-                    src={imageSrc}
-                    alt={title}
-                    style={{ objectFit: "fill" }}
-                />
-            </div>
-            <div className="pt-7 px-6 flex flex-row space-x-2 uppercase">
+        <Card className={`flex flex-col max-w-sm lg:max-w-2xl bg-black bg-opacity-20 rounded-md overflow-hidden shadow-lg border-none text-white select-none`}>
+            <Image
+                src={imageSrc}
+                alt={""}
+                width={0}
+                height={0}
+                layout={"responsive"}
+            />
+            <div className="pt-7 px-6 grid-flow-col grid lg:grid-flow-col grid-rows-2 lg:grid-rows-1 gap-x-2 gap-y-2 uppercase">
                 {badges?.map((badge, index) => (
-                    <Badge key={index} className="bg-orange-400 tracking-widest">{badge.title}</Badge>
+                    <Badge key={index} variant={"outline"} className="flex items-center justify-center text-white">{badge.title}</Badge>
                 ))}
             </div>
 
-            <CardContent className={`flex flex-col py-7 space-y-5`}>
-                <h1 className="title-font text-2xl font-medium text-white">{title}</h1>
-                <p className="font-normal text-white">{description}</p>
-                <div className="flex flex-row items-center flex-wrap">
-                    {showReadMore && (
+            <CardContent className="flex flex-col pt-7">
+                <Typography.H1>{title}</Typography.H1>
+                <Typography.P>{description}</Typography.P>
+                {showReadMore && (
+                    <div className="pt-7 l">
                         <a href={projectLink} target="_blank">
-                            <button
-                                type="button"
-                                className="text-gray-100 duration-200 flex text-sm items-center bg-blue-600 p-2 px-3 rounded-lg font-semibold shadow-xl">
-                                Read more (In Finnish)
-                                <ArrowRightCircleIcon className="h-7 w-7 pl-2" />
-                            </button>
+                            <Button className="shadow-md border-[3px]" variant={"ghost"}> Read more (In Finnish) </Button>
                         </a>
-                    )}
-                </div>
+                    </div>
+                )}
             </CardContent>
         </Card>
     )

@@ -2,6 +2,7 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
 import ProjectCard from "./ProjectCard";
 import { CustomBadge } from "@/types";
+import * as Typography from "../Typography/Typography"
 
 const MimicBadges: CustomBadge[] = [
   { title: "Unreal Engine", color: "#333333" },
@@ -37,11 +38,15 @@ type CarouselProps = {
 
 const ProjectsCarousel = ({ showNavigation }: CarouselProps) => {
   return (
-    <div className="flex flex-col items-center justify-center h-[600px] space-y-5">
-      <h1 className="z-0 uppercase tracking-[10px] flex items-center justify-center w-full font-semibold text-[#F7AB0A]/75 text-2xl md:text-2xl lg:text-4xl">Projects</h1>
-      <Carousel className="w-full max-w-5xl">
+    <div className="flex flex-col items-center gap-10">
+      <Typography.H1>Projects</Typography.H1>
+      <Carousel className="max-w-3xl"
+        opts={{
+          align: "start",
+          loop: false,
+        }}>
         <CarouselContent>
-          <CarouselItem className="flex items-center justify-center">
+          <CarouselItem className="flex items-start justify-center">
             <ProjectCard
               title={"MIMIC"}
               imageSrc={"/projektit/mimic.png"}
@@ -51,7 +56,7 @@ const ProjectsCarousel = ({ showNavigation }: CarouselProps) => {
               projectLink={"https://probot.fi/mimic-robotin-etaohjausta-virtuaalitodellisuuden-avulla"} />
           </CarouselItem>
 
-          <CarouselItem className="flex items-center justify-center">
+          <CarouselItem className="flex items-start justify-center">
             <ProjectCard
               title={"EDISON"}
               imageSrc={"/projektit/edison.png"}
@@ -62,7 +67,7 @@ const ProjectsCarousel = ({ showNavigation }: CarouselProps) => {
             />
           </CarouselItem>
 
-          <CarouselItem className="flex items-center justify-center">
+          <CarouselItem className="flex items-start justify-center">
             <ProjectCard title={"MAGOS Plugin for Unreal Engine"}
               imageSrc={"/projektit/ue-integration.png"}
               description={"This project involved the development of a unique plugin for Unreal Engine 5, designed to integrate with MAGOS haptic gloves. These gloves are a state-of-the-art Human Computer Interaction (HCI) device used in Extended Reality (XR) applications. The plugin enables users to experience tactile feedback in the virtual environment, enhancing the immersive experience and providing a more realistic interaction with virtual objects. This project showcases the potential of combining cutting-edge game engine technology with advanced haptic devices, opening up new possibilities in fields such as healthcare, engineering, education, telerobotics, and gaming."}
@@ -71,11 +76,11 @@ const ProjectsCarousel = ({ showNavigation }: CarouselProps) => {
               projectLink={"https://probot.fi/mimic-robotin-etaohjausta-virtuaalitodellisuuden-avulla"} />
           </CarouselItem>
 
-          <CarouselItem className="flex items-center justify-center">
+          <CarouselItem className="flex items-start justify-center">
             <ProjectCard
               title={"Web Interface for Mobile Robot Navigation and Interaction"}
               imageSrc={"/projektit/web-interface-1.png"}
-              description={"This project involved the development of a secure web interface for a mobile robot, incorporating several advanced features to enhance the robot's functionality and user interaction. The interface includes an editable map with Points of Interest (POIs), allowing users to customize the robot's navigation environment. The interface is integrated with the Oulubot Chatbot, providing a conversational interface for user-robot interaction. A MySQL database with Prisma was implemented to manage and store data effectively. The web interface communicates with an external computer running the robot's SLAMWARE, ensuring seamless navigation and operation. Importantly, the interface includes an authentication system, ensuring secure access to the robot's settings and safeguarding against unauthorized access. This project demonstrates the potential of integrating web technologies with robotics for enhanced navigation, user interaction, and security."}
+              description={"This project involved the development of a secure web interface for a mobile robot, incorporating several advanced features to enhance the robot's functionality and user interaction. The interface includes an editable map with POIs, allowing users to customize the robot's navigation environment. The interface is integrated with the Oulubot Chatbot, providing a conversational interface for user-robot interaction. A MySQL database with Prisma was implemented to manage and store data effectively. The web interface communicates with an external computer running the robot's SLAMWARE, ensuring seamless navigation and operation. Importantly, the interface includes an authentication system, ensuring secure access to the robot's settings and safeguarding against unauthorized access. This project demonstrates the potential of integrating web technologies with robotics for enhanced navigation, user interaction, and security."}
               badges={WebInterfaceBadges}
               showReadMore={false}
               projectLink={"https://probot.fi/mimic-robotin-etaohjausta-virtuaalitodellisuuden-avulla"} />

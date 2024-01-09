@@ -2,6 +2,8 @@ import {
     Card,
     CardContent,
 } from "@/components/ui/card"
+import Image from "next/image";
+import * as Typography from "../Typography/Typography"
 import { Badge } from "../ui/badge";
 
 type JobCardProps = {
@@ -21,29 +23,30 @@ const ExperienceCard = ({ company, companyLogo, title, workTime, description, co
         return (
             <div className="flex space-x-2">
                 {badges.map((badge, index) =>
-                    <Badge key={index} className="bg-gray-600">{badge}</Badge>
+                    <Badge key={index} variant={"outline"} className="flex items-center justify-center text-white">{badge}</Badge>
                 )}
             </div>
         )
     }
 
     return (
-        <Card className="flex flex-col rounded-md items-center bg-black bg-opacity-20 text-white p-10 cursor-pointer transition-opacity duration-200 border-none select-none shadow-xl m-5">
-            <a className="flex flex-col items-center space-y-5 h-full rounded-md" href={companyLink} target="_blank">
-                <h4 className="text-xl md:text-2xl pb-2 font-bold">{company}</h4>
-                <img
-                    className="w-20 h-20 md:w-28 md:h-28 rounded-sm flex-shrink-0 object-cover object-center shadow-sm"
+        <Card className={`flex flex-col max-w-sm md:max-w-lg lg:max-w-2xl bg-black bg-opacity-20 rounded-md overflow-hidden shadow-lg border-none text-white select-none`}>
+            <a className="flex flex-col items-center gap-5 h-full rounded-md py-5" href={companyLink} target="_blank">
+                <Typography.H1>{company}</Typography.H1>
+                <Image
                     src={companyLogo}
                     alt="logo"
+                    width={0}
+                    height={0}
+                    layout={"responsive"}
+                    className="max-w-[150px]"
                 />
-                <p className="font-semibold text-md md:text-xl">{title}</p>
+                <Typography.H3>{title}</Typography.H3>
                 <Badges />
-                <p className="uppercase text-gray-300 text-sm md:text-md">
-                    {workTime}
-                </p>
+                <Typography.H4>{workTime}</Typography.H4>
             </a>
-            <CardContent className="flex flex-col p-6">
-                {description}
+            <CardContent className="flex flex-col pt-6">
+                <Typography.P>{description}</Typography.P>
             </CardContent>
         </Card>
     )

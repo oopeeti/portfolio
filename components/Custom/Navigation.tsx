@@ -1,18 +1,19 @@
 "use client";
+import { Button } from "@/components/ui/button"
 
 const Navigation = () => {
   return (
     <div className="flex flex-row items-center justify-center text-gray-100 space-x-5 lg:space-x-10 my-2 z-20">
       <a href="#about">
-        <button className="heroButton">About</button>
+        <Button variant={"outline"} className="bg-transparent uppercase">About</Button>
       </a>
 
       <a href="#experience">
-        <button className="heroButton">Experience</button>
+        <Button variant={"outline"} className="bg-transparent uppercase">Experience</Button>
       </a>
 
       <a href="#projects">
-        <button className="heroButton">Projects</button>
+        <Button variant={"outline"} className="bg-transparent uppercase">Projects</Button>
       </a>
     </div>
   );

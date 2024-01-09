@@ -5,9 +5,12 @@ import ProjectsCarousel from "@/components/Projects/ProjectsCarousel";
 
 const Work = () => {
     return (
-        <div className="flex flex-col space-y-10 xl:space-y-0 xl:flex-row xl:items-start items-center justify-center">
-            <ExperienceCarousel showNavigation={false} />
-            <ProjectsCarousel showNavigation={false} />
+        <div className="flex h-full w-screen flex-col">
+            <div className="flex flex-col lg:flex-row justify-center gap-10">
+                <ExperienceCarousel showNavigation={false} />
+                <ProjectsCarousel showNavigation={false} />
+            </div>
+
         </div>
     )
 }

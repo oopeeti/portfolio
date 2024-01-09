@@ -1,12 +1,12 @@
 "use client";
 
 import About from "../components/About";
-import WorkExperience from "../components/WorkExperience";
 import Hero from "../components/Hero";
-import ContactMe from "../components/ContactMe";
 import Stars from "../components/ThreeJS/Stars";
 import { motion } from "framer-motion";
 import { Suspense } from "react";
+import ContactMe from "@/components/ContactMe";
+import Work from "@/components/Work";
 
 function HomePage() {
   return (
@@ -22,18 +22,18 @@ function HomePage() {
       </Suspense>
 
       <section id="hero" className="snap-start">
-        <Hero title="Software Engineer, XR Developer" />
+        <Hero title="Software Engineer, UE Developer" />
       </section>
 
-      <section id="about" className="">
+      <section id="about" className="snap-start h-screen">
         <About />
       </section>
 
-      <section id="experience" className="">
-        <WorkExperience />
+      <section id="experience" className="snap-center my-10 h-screen">
+        <Work />
       </section>
 
-      <section id="contact" className="">
+      <section id="contact" className="snap-start h-screen">
         <ContactMe />
       </section>
     </div>

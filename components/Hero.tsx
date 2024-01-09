@@ -37,7 +37,7 @@ function Hero({ title }: HeroProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2.75, duration: 1.5 }}
-              className="flex justify-center mx-5 lg:mx-10 xl:mx-20 items-center">
+              className="flex flex-col justify-center mx-5 lg:mx-10 xl:mx-20 items-center">
               <Navigation />
             </motion.div>
           </div>

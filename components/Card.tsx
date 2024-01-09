@@ -24,7 +24,7 @@ export default function Card({
   showReadMore = true,
 }: CardProps) {
   return (
-    <div className="flex flex-col h-full  bg-gray-900 shadow-lg rounded-lg overflow-hidden">
+    <div className="flex flex-col h-full bg-gray-900 shadow-lg rounded-lg overflow-hidden">
       <div className="w-full h-full">
         <Image
           src={imageSrc}

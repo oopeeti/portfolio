@@ -1,5 +1,6 @@
 "use client";
-import "../styles/globals.css";
+import "./globals.css";
+import { Toaster } from "@/components/ui/toaster"
 
 export default function RootLayout({
   children,
@@ -9,7 +10,10 @@ export default function RootLayout({
   return (
     <html>
       <head />
-      <body className="bg-[rgb(36,36,36)]">{children}</body>
+      <body>
+        <main>{children}</main>
+        <Toaster />
+      </body>
     </html>
   );
 }

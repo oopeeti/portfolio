@@ -12,7 +12,7 @@ function Navigation() {
         <button className="heroButton">Experience</button>
       </a>
 
-      <a href="/projects">
+      <a href="#projects">
         <button className="heroButton">Projects</button>
       </a>
     </div>

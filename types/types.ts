@@ -4,7 +4,7 @@ export type TechnologyPin = {
   level?: number;
 };
 
-export type TagProps = {
+export type CustomBadge = {
   title: string;
   color: string;
 };

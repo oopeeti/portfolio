@@ -1,56 +1,87 @@
-import React from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+"use client"
 
-type Inputs = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-};
+import * as z from "zod"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { Button } from "@/components/ui/button"
+import { useToast } from "@/components/ui/use-toast"
+import { Textarea } from "@/components/ui/textarea"
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+
+const formSchema = z.object({
+    name: z.string(),
+    email: z.string().email(),
+    message: z.string()
+})
 
 export default function ContactForm() {
-  const { register, handleSubmit } = useForm<Inputs>();
+    const { toast } = useToast()
+    const form = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            name: "",
+            email: "",
+            message: "",
+        },
+    })
 
-  const onSubmit: SubmitHandler<Inputs> = (formData) => {
-    window.location.href = `mailto:ollipekkanikka@gmail.com?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message}`;
-  };
+    function onSubmit(values: z.infer<typeof formSchema>) {
+        console.log(values)
+    }
 
-  return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col space-y-2 w-fit mx-auto">
-      <div className="flex space-x-2">
-        <input
-          {...register("name")}
-          placeholder="Name"
-          className="contactInput"
-          type="text"
-        />
-        <input
-          {...register("email")}
-          placeholder="Email"
-          className="contactInput"
-          type="email"
-        />
-      </div>
+    return (
+        <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 w-full max-w-lg flex flex-col gap-4 border-2 bg-slate-100 p-10 rounded-md shadow-xl">
+                <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Name</FormLabel>
+                            <FormControl>
+                                <Input placeholder="John Doe" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Email</FormLabel>
+                            <FormControl>
+                                <Input placeholder="johndoe@domain.com" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Message</FormLabel>
+                            <FormControl>
+                                <Textarea placeholder="Message" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <Button type="submit" className="bg-blue-500">Submit</Button>
+            </form>
+        </Form>
+    )
 
-      <input
-        {...register("subject")}
-        placeholder="Subject"
-        className="contactInput"
-        type="text"
-      />
-
-      <textarea
-        {...register("message")}
-        placeholder="Message"
-        className="contactInput"
-      />
-      <button
-        type="submit"
-        className="bg-[#F7AB0A] py-5 px-10 rounded-md text-back font-bold text-lg">
-        Submit
-      </button>
-    </form>
-  );
 }

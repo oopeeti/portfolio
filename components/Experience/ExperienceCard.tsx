@@ -1,12 +1,7 @@
 import {
     Card,
     CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
 } from "@/components/ui/card"
-import { cn } from "@/lib/utils"
 import { Badge } from "../ui/badge";
 
 type JobCardProps = {
@@ -21,7 +16,7 @@ type JobCardProps = {
 
 
 
-export function JobCard({ company, companyLogo, title, workTime, description, companyLink, badges }: JobCardProps) {
+const ExperienceCard = ({ company, companyLogo, title, workTime, description, companyLink, badges }: JobCardProps) => {
     const Badges = () => {
         return (
             <div className="flex space-x-2">
@@ -53,3 +48,5 @@ export function JobCard({ company, companyLogo, title, workTime, description, co
         </Card>
     )
 }
+
+export default ExperienceCard;

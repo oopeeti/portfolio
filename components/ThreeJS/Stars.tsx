@@ -6,14 +6,6 @@ import { Points, PointMaterial } from "@react-three/drei";
 import { random } from "maath";
 import THREE from "three";
 
-export default function Stars() {
-  return (
-    <Canvas>
-      <GenerateStars />
-    </Canvas>
-  );
-}
-
 function GenerateStars(props: JSX.IntrinsicElements["group"]) {
   const [color, setColor] = useState("#F7AB0A");
   const ref = useRef<THREE.Points>(null);
@@ -42,3 +34,13 @@ function GenerateStars(props: JSX.IntrinsicElements["group"]) {
     </group>
   );
 }
+
+const Stars = () => {
+  return (
+    <Canvas>
+      <GenerateStars />
+    </Canvas>
+  );
+}
+
+export default Stars;

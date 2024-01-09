@@ -8,7 +8,7 @@ interface NotFoundStateProps {
     error: Error;
 }
 
-export default function NotFound({ error }: NotFoundStateProps) {
+const NotFound = ({ error }: NotFoundStateProps) => {
     useEffect(() => {
         // eslint-disable-next-line no-console
         console.error(error);
@@ -16,10 +16,11 @@ export default function NotFound({ error }: NotFoundStateProps) {
 
     return (
         <EmptyState
-            title="Uh No"
+            title="Oh no!"
             subtitle="Could not find requested resource"
-            showReset
             label="Go back home"
         />
     );
 };
+
+export default NotFound;

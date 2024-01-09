@@ -9,7 +9,7 @@ type ModelProps = ThreeElements["mesh"] & {
   path: string;
 };
 
-function Model({ path, ...props }: ModelProps) {
+const Model = ({ path, ...props }: ModelProps) => {
   const gltf = useLoader(GLTFLoader, path); // replace with your own model path
   const mesh = useRef<THREE.Mesh>(null);
   const [mixer, setMixer] = useState<THREE.AnimationMixer | null>(null);
@@ -39,7 +39,7 @@ function Model({ path, ...props }: ModelProps) {
   );
 }
 
-function CameraControls() {
+const CameraControls = () => {
   const { camera } = useThree();
   camera.position.set(0, 0.6, 2);
   camera.rotation.set(-0.4, 0, 0);
@@ -54,7 +54,7 @@ type ThreeSceneProps = {
   scale: number;
 };
 
-export default function ThreeScene({ modelPath, scale }: ThreeSceneProps) {
+const ThreeScene = ({ modelPath, scale }: ThreeSceneProps) => {
   return (
     <>
       <ambientLight />
@@ -63,3 +63,5 @@ export default function ThreeScene({ modelPath, scale }: ThreeSceneProps) {
     </>
   );
 }
+
+export default ThreeScene

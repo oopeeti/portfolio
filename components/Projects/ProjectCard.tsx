@@ -4,8 +4,6 @@ import {
 } from "@/components/ui/card"
 import { CustomBadge } from "@/types";
 import { ArrowRightCircleIcon } from "@heroicons/react/24/solid";
-
-import Image from "next/image"
 import { Badge } from "../ui/badge";
 
 type JobCardProps = {
@@ -18,7 +16,7 @@ type JobCardProps = {
 
 }
 
-export function ProjectCard({ title, imageSrc, description, showReadMore, projectLink, badges }: JobCardProps) {
+const ProjectCard = ({ title, imageSrc, description, showReadMore, projectLink, badges }: JobCardProps) => {
     return (
         <Card className={`flex flex-col bg-black bg-opacity-20 overflow-hidden border-none max-w-[680px] shadow-2xl`}>
             <div className="flex flex-1 items-center justify-center">
@@ -53,3 +51,5 @@ export function ProjectCard({ title, imageSrc, description, showReadMore, projec
         </Card>
     )
 }
+
+export default ProjectCard;

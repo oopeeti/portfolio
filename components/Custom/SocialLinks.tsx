@@ -1,7 +1,7 @@
 "use client";
 import { SocialIcon } from "react-social-icons";
 
-export default function SocialLinks() {
+const SocialLinks = () => {
   return (
     <div className="flex flex-row m-5 items-center space-x-5 justify-end cursor">
       {/* Social Icons */}
@@ -20,3 +20,5 @@ export default function SocialLinks() {
     </div>
   );
 }
+
+export default SocialLinks;

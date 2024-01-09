@@ -1,7 +1,6 @@
 "use client";
-import { WrenchScrewdriverIcon } from "@heroicons/react/24/solid";
 
-function Navigation() {
+const Navigation = () => {
   return (
     <div className="flex flex-row items-center justify-center text-gray-100 space-x-5 lg:space-x-10 my-2 z-20">
       <a href="#about">

@@ -1,7 +1,6 @@
 "use client";
-import Title from "../Custom/Title";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
-import { ProjectCard } from "./ProjectCard";
+import ProjectCard from "./ProjectCard";
 import { CustomBadge } from "@/types";
 
 const MimicBadges: CustomBadge[] = [
@@ -36,7 +35,7 @@ type CarouselProps = {
   showNavigation: boolean
 }
 
-export default function ProjectsCarousel({ showNavigation }: CarouselProps) {
+const ProjectsCarousel = ({ showNavigation }: CarouselProps) => {
   return (
     <div className="flex flex-col items-center justify-center h-[600px] space-y-5">
       <h1 className="z-0 uppercase tracking-[10px] flex items-center justify-center w-full font-semibold text-[#F7AB0A]/75 text-2xl md:text-2xl lg:text-4xl">Projects</h1>
@@ -92,3 +91,5 @@ export default function ProjectsCarousel({ showNavigation }: CarouselProps) {
     </div>
   );
 }
+
+export default ProjectsCarousel;

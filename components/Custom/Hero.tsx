@@ -9,7 +9,7 @@ type HeroProps = {
   title: string;
 };
 
-function Hero({ title }: HeroProps) {
+const Hero = ({ title }: HeroProps) => {
   const [text, count] = useTypewriter({
     words: ["Hi, My Name is Olli-Pekka", "Developer", "Lifelong Learner"],
     loop: true,

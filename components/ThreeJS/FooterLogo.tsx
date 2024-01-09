@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-export default function FooterLogo() {
+const FooterLogo = () => {
   return (
     <footer className="sticky bottom-5 w-full cursor-pointer">
       <motion.div
@@ -17,3 +17,5 @@ export default function FooterLogo() {
     </footer>
   );
 }
+
+export default FooterLogo;

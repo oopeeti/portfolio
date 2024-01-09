@@ -1,7 +1,7 @@
 import ContactForm from "@/components/Custom/ContactForm";
 import Title from "@/components/Custom/Title";
 
-export default async function ContactPage() {
+const ContactPage = () => {
     return (
         <div className="flex flex-col items-center justify-center gap-10 w-screen h-screen">
             <Title title="Contact" />
@@ -9,3 +9,5 @@ export default async function ContactPage() {
         </div>
     )
 }
+
+export default ContactPage;

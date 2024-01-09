@@ -1,6 +1,6 @@
 "use client";
 
-function About() {
+const About = () => {
   return (
     <div className="flex flex-col relative h-screen max-w-[1700px] mx-auto justify-center items-center">
       <div className="flex flex-col">

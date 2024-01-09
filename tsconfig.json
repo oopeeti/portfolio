@@ -29,7 +29,8 @@
       "@/public/*": [
         "./public/*"
       ]
-    }
+    },
+    "forceConsistentCasingInFileNames": true
   },
   "include": [
     "next-env.d.ts",

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Portfolio',
 }
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="flex flex-col bg-[rgb(36,36,36)] text-white h-screen w-screen snap-y overflow-y-scroll scroll-smooth overflow-x-hidden z-20">
       <section id="hero" className="snap-start">
@@ -24,3 +24,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;

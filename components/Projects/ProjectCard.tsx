@@ -2,7 +2,7 @@ import {
     Card,
     CardContent,
 } from "@/components/ui/card"
-import { CustomBadge } from "@/types/types";
+import { CustomBadge } from "@/types";
 import { ArrowRightCircleIcon } from "@heroicons/react/24/solid";
 
 import Image from "next/image"

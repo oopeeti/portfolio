@@ -1,5 +1,7 @@
-import ExperienceCarousel from "./Experience/ExperienceCarousel";
-import ProjectsCarousel from "./Projects/ProjectsCarousel";
+"use client"
+
+import ExperienceCarousel from "@/components/Experience/ExperienceCarousel";
+import ProjectsCarousel from "@/components/Projects/ProjectsCarousel";
 
 export default function Work() {
     return (

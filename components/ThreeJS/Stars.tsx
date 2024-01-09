@@ -4,7 +4,6 @@ import { useState, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import { random } from "maath";
-import Model from "./Model";
 import THREE from "three";
 
 export default function Stars() {

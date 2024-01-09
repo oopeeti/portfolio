@@ -1,5 +1,12 @@
 {
+  "name": "ollipekkanikka-portfolio",
+  "version": "0.1.0",
+  "author": "Olli-Pekka Nikka",
+  "license": "MIT",
   "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -15,22 +22,25 @@
     "@react-three/drei": "^9.56.25",
     "@react-three/fiber": "^8.11.2",
     "@types/three": "^0.149.0",
+    "axios": "^1.6.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "embla-carousel-react": "^8.0.0-rc18",
     "framer-motion": "^9.0.3",
     "maath": "^0.5.2",
-    "next": "^13.1.6",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "next": "^14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-hook-form": "^7.49.3",
     "react-hot-toast": "^2.4.0",
+    "react-icons": "^4.12.0",
     "react-scroll": "^1.8.9",
     "react-simple-typewriter": "^5.0.1",
     "react-social-icons": "^5.15.0",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.149.0",
+    "winston": "^3.11.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {

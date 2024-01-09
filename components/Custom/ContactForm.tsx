@@ -4,7 +4,6 @@ import * as z from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "@/components/ui/button"
-import { useToast } from "@/components/ui/use-toast"
 import { Textarea } from "@/components/ui/textarea"
 import {
     Form,
@@ -16,14 +15,15 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 
+type ContactFormProps = {}
+
 const formSchema = z.object({
     name: z.string(),
     email: z.string().email(),
     message: z.string()
 })
 
-export default function ContactForm() {
-    const { toast } = useToast()
+export default function ContactForm({ }: ContactFormProps) {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {

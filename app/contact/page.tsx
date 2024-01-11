@@ -1,11 +1,13 @@
-import ContactForm from "@/components/ContactForm";
-import Title from "@/components/Title";
+import ContactForm from "@/components/Html/ContactForm";
+import Title from "@/components/Html/Title";
 
-export default function ContactPage() {
+const ContactPage = () => {
     return (
-        <div className="flex flex-col items-center justify-center gap-10 w-screen h-screen bg-slate-200">
+        <div className="flex flex-col items-center justify-center gap-10 w-screen h-screen">
             <Title title="Contact" />
             <ContactForm />
         </div>
     )
 }
+
+export default ContactPage;

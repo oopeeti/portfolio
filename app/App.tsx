@@ -72,7 +72,7 @@ const App = () => {
             <div className="w-screen h-screen">
                 <AudioAnalyzerProvider>
                     <Canvas shadows flat dpr={dpr} camera={{ position: [0, 0.1, 1], fov: 60, near: 0.001, far: 100 }}>
-                        <ScrollControls damping={0.5} pages={4} distance={1} enabled={experienceEnabled} >
+                        <ScrollControls damping={0.1} pages={4.25} distance={1} enabled={experienceEnabled} >
                             <Suspense fallback={null}>
                                 <Scene />
                             </Suspense>
@@ -92,7 +92,7 @@ const App = () => {
                             </Scroll>
                         </ScrollControls>
                         {/* <CameraControls /> */}
-                        <PerformanceMonitor onDecline={() => setDpr(1)} onIncline={() => setDpr(1.5)} />
+                        <PerformanceMonitor onDecline={() => setDpr(1.25)} onIncline={() => setDpr(1.5)} />
                         <Preload all />
                     </Canvas >
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-white flex flex-row justify-center items-center gap-5 px-3 rounded-full mt-5">

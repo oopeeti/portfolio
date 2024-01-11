@@ -11,16 +11,17 @@ export function ComputerInteractive({ ...props }: GroupProps) {
     const [power, setPower] = useState(false)
     const audioRef = useRef<any>(new Audio('/music/retrobg.mp3'));
     const clickSound = useRef(new Audio('/sounds/button-click.mp3'));
-    const { connectAudioSource, dataArray, updateDataArray, initAudioContext, scaleValue } = useContext(AudioAnalyzerContext);
+    const { connectAudioSource, initAudioContext, scaleValue } = useContext(AudioAnalyzerContext);
     const { setExperienceEnabled, experienceEnabled } = useStore()
     const [lastExecuted, setLastExecuted] = useState(Date.now());
 
     const objectRef = useRef<any>(null);
     const objectInitialScale = 0.03;
+    const musicVolume = 0.00175
 
 
     useEffect(() => {
-        audioRef.current.volume = 0.0025;
+        audioRef.current.volume = musicVolume;
         audioRef.current.loop = true;
         connectAudioSource(audioRef.current);
     }, [connectAudioSource]);
@@ -36,6 +37,7 @@ export function ComputerInteractive({ ...props }: GroupProps) {
         clickSound.current.play()
         initAudioContext();
         if (state) {
+            audioRef.current.volume = musicVolume;
             audioRef.current.play();
         } else {
             audioRef.current.pause();
@@ -43,14 +45,27 @@ export function ComputerInteractive({ ...props }: GroupProps) {
     }
 
     useEffect(() => {
+        const handleVisibilityChange = () => {
+            if (document.hidden) {
+                audioRef.current.pause();
+            } else {
+                audioRef.current.volume = musicVolume;
+                audioRef.current.play();
+            }
+        };
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+    }, []);
+
+    useEffect(() => {
         if (!audioRef) return
-        clickSound.current.volume = 0.5
-        audioRef.current.volume = 0
-        audioRef.current.loop = true
+        clickSound.current.volume = 0.25
     }, [audioRef])
 
     function onPowerButtonPressed() {
         if (!experienceEnabled) return
+        audioRef.current.volume = musicVolume;
         clickSound.current.play()
         audioRef.current.pause()
         setPower(!power)

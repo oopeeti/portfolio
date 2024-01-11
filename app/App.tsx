@@ -15,7 +15,6 @@ import ExperienceCarousel from "@/components/Carousels/ExperienceCarousel"
 import ProjectsCarousel from "@/components/Carousels/ProjectsCarousel"
 import { useStore } from "./store"
 import { AudioAnalyzerProvider } from "@/components/Contexts/AudioAnalyzerContext"
-import { SpinningBox } from "@/components/SpinningBox"
 
 const Scene = () => {
     const scroll = useScroll();

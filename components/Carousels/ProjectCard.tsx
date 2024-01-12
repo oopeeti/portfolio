@@ -29,8 +29,8 @@ const ProjectCard = ({ title, imageSrc, description, showReadMore, projectLink, 
                 <Image
                     src={imageSrc}
                     alt={""}
-                    width={0}
-                    height={0}
+                    width={500}
+                    height={300}
                     layout={"responsive"}
                 />
 

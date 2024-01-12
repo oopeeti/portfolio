@@ -1,86 +1,67 @@
-import { PerspectiveCamera, RenderTexture, useGLTF, Text, Sphere, Cylinder } from "@react-three/drei"
-import { use, useContext, useEffect, useMemo, useRef, useState } from "react"
-import { MeshBasicMaterial, MeshPhysicalMaterial, Vector3 } from "three"
-import { GroupProps, useFrame } from "@react-three/fiber"
+import { PerspectiveCamera, RenderTexture, useGLTF, Text, Sphere, Cylinder, Merged } from "@react-three/drei"
+import { createContext, use, useContext, useEffect, useMemo, useRef, useState } from "react"
+import { MeshPhysicalMaterial, Vector3 } from "three"
+import { GroupProps, context, useFrame, useThree } from "@react-three/fiber"
 import gsap from "gsap"
-import { AudioAnalyzerContext } from "./Contexts/AudioAnalyzerContext"
 import { useStore } from "@/app/store"
-import { SpinningBox } from "./SpinningBox"
+import { SpinningObject } from "./SpinningObject"
 
-export function ComputerInteractive({ ...props }: GroupProps) {
-    const [power, setPower] = useState(false)
-    const audioRef = useRef<any>(new Audio('/music/retrobg.mp3'));
-    const clickSound = useRef(new Audio('/sounds/button-click.mp3'));
-    const { connectAudioSource, initAudioContext, scaleValue } = useContext(AudioAnalyzerContext);
+const objects = {
+    Keyboard: "Object_4",
+    PC: "Object_16",
+    SmallPC: "Object_28",
+    Monitor: "Object_206",
+    MonitorScreen: "Object_207",
+    Monitor2: "Object_215",
+    MonitorScreen2: "Object_216",
+}
+
+export function Computers({ ...props }: GroupProps) {
     const { setExperienceEnabled, experienceEnabled } = useStore()
-    const [lastExecuted, setLastExecuted] = useState(Date.now());
-
-    const objectRef = useRef<any>(null);
-    const objectInitialScale = 0.03;
-    const musicVolume = 0.00175
-
-
-    useEffect(() => {
-        audioRef.current.volume = musicVolume;
-        audioRef.current.loop = true;
-        connectAudioSource(audioRef.current);
-    }, [connectAudioSource]);
-
-
-    useEffect(() => {
-        if (objectRef.current) {
-            objectRef.current.scale.set(scaleValue, scaleValue, scaleValue,)
-        }
-    }, [scaleValue])
-
-    function onToggleAudio(state: boolean) {
-        clickSound.current.play()
-        initAudioContext();
-        if (state) {
-            audioRef.current.volume = musicVolume;
-            audioRef.current.play();
-        } else {
-            audioRef.current.pause();
-        }
-    }
-
-    useEffect(() => {
-        const handleVisibilityChange = () => {
-            if (document.hidden) {
-                audioRef.current.pause();
-            } else {
-                audioRef.current.volume = musicVolume;
-                audioRef.current.play();
-            }
-        };
-
-        document.addEventListener('visibilitychange', handleVisibilityChange);
-        return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
-    }, []);
-
-    useEffect(() => {
-        if (!audioRef) return
-        clickSound.current.volume = 0.25
-    }, [audioRef])
-
-    function onPowerButtonPressed() {
-        if (!experienceEnabled) return
-        audioRef.current.volume = musicVolume;
-        clickSound.current.play()
-        audioRef.current.pause()
-        setPower(!power)
-    }
-
-    function startExperience() {
-        console.log("[Music by Music Unlimited Pixabay]");
-        setPower(true)
-        onToggleAudio(true)
-        setExperienceEnabled(true)
-    }
 
     return (
         <group {...props}>
-            <Screen frame={"Object_206"} panel={"Object_207"}>
+            <InteractiveComputer frame="Object_206" panel="Object_207" />
+            {/* <TextComputer text={"Hello World"} frame="Object_212" panel="Object_213" x={-5} y={5} position={[-2.73, 2, 1]} rotation={[-0.1, 1.09, 0]} textRotation={[0, 0, 0]} /> */}
+            <Keyboard position={[3, -2, -0.52]} rotation={[-0.1, 1.09, 0]} scale={0.5} />
+            <Model geometry={objects.Keyboard} position={[2.5, 1, 0]} rotation={[-0.1, 1.09, 0]} scale={0.5} />
+            <Model geometry={objects.PC} position={[-2.73, 0.2, 1]} rotation={[-0.1, 1.09, 0]} scale={1} />
+            {!experienceEnabled && <Start onStart={() => setExperienceEnabled(true)} scale={0.4} position={[0, 0.61, 0]} />}
+        </group>
+    )
+}
+
+type ComputerProps = {
+    frame: string
+    panel: string
+} & JSX.IntrinsicElements['group']
+
+const InteractiveComputer = ({ frame, panel }: ComputerProps) => {
+    const [power, setPower] = useState(false)
+    const clickSound = useRef(new Audio('/sounds/button-click.mp3'));
+    const { setMusicPlaying, experienceEnabled } = useStore()
+    clickSound.current.volume = 0.2;
+
+    useEffect(() => {
+        if (experienceEnabled) {
+            setPower(true)
+        }
+    }, [experienceEnabled])
+
+    function onPowerButtonPressed() {
+        clickSound.current.play()
+        setPower(!power)
+        setMusicPlaying(!power)
+    }
+
+    function toggleAudio(state: boolean) {
+        clickSound.current.play()
+        setMusicPlaying(state)
+    }
+
+    return (
+        <group>
+            <Screen frame={frame} panel={panel}>
                 <PerspectiveCamera makeDefault manual aspect={1 / 1} position={[0, 0, 10]} />
                 <color attach="background" args={[power ? '#111111' : 'black']} />
                 {power &&
@@ -88,17 +69,16 @@ export function ComputerInteractive({ ...props }: GroupProps) {
                         <ambientLight intensity={0.2} />
                         <pointLight position={[10, 10, 10]} intensity={0.75} />
                         <pointLight position={[-10, -10, -10]} />
-                        <SpinningBox position={[-3.15, 0.75, 0]} scale={0.3} />
+                        <SpinningObject position={[-3.15, 0.75, 0]} scale={0.3} />
                         <group>
-                            <Text fontSize={0.1} position={[-3.9, 1.35, -0]} onClick={() => onToggleAudio(true)}>Play</Text>
-                            <Text fontSize={0.1} position={[-2.45, 1.35, 0]} onClick={() => onToggleAudio(false)}>Pause</Text>
+                            <Text fontSize={0.1} position={[-3.9, 1.35, -0]} onClick={() => toggleAudio(true)}>Play</Text>
+                            <Text fontSize={0.1} position={[-2.45, 1.35, 0]} onClick={() => toggleAudio(false)}>Pause</Text>
                         </group>
                     </group>
                 }
             </Screen>
             <Led power={power} position={[-0.4, 0.08, 0.21]} />
             <PowerButton onPressed={onPowerButtonPressed} position={[0.45, 0.08, 0.21]} />
-            {!experienceEnabled && <Start onStart={startExperience} scale={0.4} position={[0, 0.61, 0]} />}
         </group>
     )
 }
@@ -122,6 +102,71 @@ function Screen({ frame, panel, children, ...props }: ScreenProps) {
                     </RenderTexture>
                 </meshBasicMaterial>
             </mesh>
+        </group>
+    )
+}
+
+type ScreenTextProps = {
+    frame: string
+    panel: string
+    text: string
+    x?: number
+    y?: number
+    textRotation?: number[]
+} & JSX.IntrinsicElements['group']
+
+function TextComputer({ x = 0, frame, panel, textRotation = [0, 0, 0], text, y = 1.2, ...props }: ScreenTextProps) {
+    const [power, setPower] = useState(false)
+    const clickSound = useRef(new Audio('/sounds/button-click.mp3'));
+    clickSound.current.volume = 0.2;
+    const { camera } = useThree()
+    const computerRef = useRef<any>()
+    const { experienceEnabled } = useStore()
+    const [textColor, setTextColor] = useState<string>("#35c19f")
+    const rand = Math.random() * 10000
+    const textRef = useRef<any>()
+
+    useEffect(() => {
+        setPower(experienceEnabled)
+    }, [experienceEnabled])
+
+    useFrame((state) => {
+        const t = state.clock.getElapsedTime()
+        if (computerRef.current) {
+            computerRef.current.rotation.set(Math.cos(t / 4) / 8, Math.sin(t / 3) / 4, 0.15 + Math.sin(t / 2) / 8)
+            computerRef.current.position.y = (5 + Math.cos(t / 2)) / 7
+
+        }
+    })
+
+    function onPowerButtonPressed() {
+        clickSound.current.play()
+        setPower(!power)
+    }
+
+    function screenClicked() {
+        setTextColor("#" + Math.floor(Math.random() * 16777215).toString(16))
+        clickSound.current.play()
+    }
+
+
+    return (
+        <group>
+            <group ref={computerRef} {...props}>
+                <Screen frame={frame} panel={panel} onClick={screenClicked} >
+                    <group>
+                        <PerspectiveCamera makeDefault manual aspect={1 / 1} position={[0, 0, 15]} />
+                        <ambientLight intensity={0.5} />
+                        <directionalLight position={[10, 10, 5]} />
+                        <Text position={[-5, 5, 0]} ref={textRef} fontSize={0.3} rotation={[textRotation[0], textRotation[1], textRotation[2]]} letterSpacing={-0.1} color={textColor}>
+                            {text}
+                        </Text>
+                    </group>
+                </Screen>
+                <Led power={power} position={[-0.4, 0.08, 0.21]} />
+                <PowerButton onPressed={onPowerButtonPressed} position={[0.45, 0.08, 0.21]} />
+            </group>
+
         </group>
     )
 }
@@ -204,6 +249,49 @@ function Start({ onStart, ...props }: StartProps) {
         <group {...props} onClick={onStartPressed} visible={visible}>
             {/* <Sphere ref={ledRef} scale={1} /> */}
             <Text ref={ledRef} color={"black"} position={[0, -0.05, 1]} fontSize={0.5} anchorX={"center"} anchorY={"middle"}>START</Text>
+        </group>
+    )
+}
+
+function Keyboard({ ...props }: GroupProps) {
+    const { nodes, materials } = useGLTF('/models/computers_1-transformed.glb') as any
+    const computerRef = useRef<any>()
+
+    useFrame((state) => {
+        const t = state.clock.getElapsedTime()
+        if (computerRef.current) {
+            computerRef.current.rotation.set(Math.cos(t / 4) / 3, Math.sin(t / 3) / 2, 0.15 + Math.sin(t / 2) / 4)
+            computerRef.current.position.z = (5 + Math.cos(t / 2)) / 7
+
+        }
+    })
+
+    return (
+        <group {...props} ref={computerRef}>
+            <mesh castShadow receiveShadow geometry={nodes["Object_4"].geometry} material={materials.Texture} />
+        </group>
+    )
+}
+
+type ModelProps = {
+    geometry: string
+} & JSX.IntrinsicElements['group']
+
+function Model({ geometry, ...props }: ModelProps) {
+    const { nodes, materials } = useGLTF('/models/computers_1-transformed.glb') as any
+    const computerRef = useRef<any>()
+
+    useFrame((state, delta) => {
+        const t = state.clock.getElapsedTime()
+        if (computerRef.current) {
+            computerRef.current.rotation.set(Math.cos(t / 4) / 3, Math.sin(t / 3) / 2, 0.15 + Math.sin(t / 2) / 4)
+            computerRef.current.position.z = (5 + Math.cos(t / 2)) / 7
+        }
+    })
+
+    return (
+        <group {...props} ref={computerRef}>
+            {nodes[geometry] && <mesh castShadow receiveShadow geometry={nodes[geometry].geometry} material={materials.Texture} />}
         </group>
     )
 }

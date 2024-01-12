@@ -5,6 +5,8 @@ import {
 import Image from "next/image";
 import * as Typography from "../Typography/Typography"
 import { Badge } from "../ui/badge";
+import { motion } from "framer-motion";
+import { ChevronDoubleRightIcon } from "@heroicons/react/24/solid";
 
 type JobCardProps = {
     companyLogo: string;
@@ -14,11 +16,12 @@ type JobCardProps = {
     workTime: string;
     description: string;
     badges: string[];
+    showGuide?: boolean;
 }
 
 
 
-const ExperienceCard = ({ company, companyLogo, title, workTime, description, companyLink, badges }: JobCardProps) => {
+const ExperienceCard = ({ company, companyLogo, title, workTime, description, companyLink, badges, showGuide = true }: JobCardProps) => {
     const Badges = () => {
         return (
             <div className="flex space-x-2">
@@ -48,6 +51,17 @@ const ExperienceCard = ({ company, companyLogo, title, workTime, description, co
             <CardContent className="flex flex-col pt-6">
                 <Typography.P>{description}</Typography.P>
             </CardContent>
+            {showGuide && (
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 3.5, duration: 1 }}
+                    className="justify-self-end w-full flex flex-row justify-end pr-5"
+                >
+                    <ChevronDoubleRightIcon className="animate-bounce w-10 h-10 text-white" />
+                </motion.div>
+            )}
+
         </Card>
     )
 }

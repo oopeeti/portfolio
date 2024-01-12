@@ -36,13 +36,15 @@ type CarouselProps = {
 
 const ProjectsCarousel = ({ showNavigation }: CarouselProps) => {
   return (
-    <div className="flex flex-col items-center justify-center gap-5 h-screen">
-      <Typography.H1 className="py-2 px-4 self-center lg:self-end text-white border-l-0 lg:border-r-2 border-b-2">Projects</Typography.H1>
-      <Carousel className="max-w-3xl"
+    <div className="flex flex-col items-center justify-start gap-5 h-full">
+      <Typography.H1 className="py-2 px-4 self-center lg:self-end  text-white border-l-0 lg:border-r-2 border-b-2">Projects</Typography.H1>
+      <Carousel className="max-w-2xl "
         opts={{
           align: "start",
           loop: false,
         }}>
+        <CarouselPrevious variant={"outline"} className="text-black bg-white hover:text-white hover:bg-black border-0 " />
+        <CarouselNext variant={"outline"} className="text-black bg-white hover:text-white hover:bg-black border-0" />
         <CarouselContent>
           <CarouselItem className="flex items-start justify-center">
             <ProjectCard
@@ -71,7 +73,9 @@ const ProjectsCarousel = ({ showNavigation }: CarouselProps) => {
               description={"This project involved the development of a unique plugin for Unreal Engine 5, designed to integrate with MAGOS haptic gloves. These gloves are a state-of-the-art Human Computer Interaction (HCI) device used in Extended Reality (XR) applications. The plugin enables users to experience tactile feedback in the virtual environment, enhancing the immersive experience and providing a more realistic interaction with virtual objects. This project showcases the potential of combining cutting-edge game engine technology with advanced haptic devices, opening up new possibilities in fields such as healthcare, engineering, education, telerobotics, and gaming."}
               badges={MagosUEIntegrationBadges}
               showReadMore={false}
-              projectLink={"https://probot.fi/mimic-robotin-etaohjausta-virtuaalitodellisuuden-avulla"} />
+              projectLink={"https://probot.fi/mimic-robotin-etaohjausta-virtuaalitodellisuuden-avulla"}
+
+            />
           </CarouselItem>
 
           <CarouselItem className="flex items-start justify-center">
@@ -81,15 +85,10 @@ const ProjectsCarousel = ({ showNavigation }: CarouselProps) => {
               description={"This project involved the development of a secure web interface for a mobile robot, incorporating several advanced features to enhance the robot's functionality and user interaction. The interface includes an editable map with POIs, allowing users to customize the robot's navigation environment. The interface is integrated with the Oulubot Chatbot, providing a conversational interface for user-robot interaction. A MySQL database with Prisma was implemented to manage and store data effectively. The web interface communicates with an external computer running the robot's SLAMWARE, ensuring seamless navigation and operation. Importantly, the interface includes an authentication system, ensuring secure access to the robot's settings and safeguarding against unauthorized access. This project demonstrates the potential of integrating web technologies with robotics for enhanced navigation, user interaction, and security."}
               badges={WebInterfaceBadges}
               showReadMore={false}
-              projectLink={"https://probot.fi/mimic-robotin-etaohjausta-virtuaalitodellisuuden-avulla"} />
+              projectLink={"https://probot.fi/mimic-robotin-etaohjausta-virtuaalitodellisuuden-avulla"}
+              showGuide={false} />
           </CarouselItem>
         </CarouselContent>
-        {showNavigation &&
-          <>
-            <CarouselPrevious variant={"ghost"} />
-            <CarouselNext variant={"ghost"} />
-          </>
-        }
       </Carousel>
     </div>
   );

@@ -15,6 +15,8 @@ const ExperienceCarousel = ({ showNavigation }: CarouselProps) => {
           align: "start",
           loop: false,
         }}>
+        <CarouselPrevious variant={"outline"} className="text-black bg-white hover:text-white hover:bg-black border-0" />
+        <CarouselNext variant={"outline"} className="text-black bg-white hover:text-white hover:bg-black border-0" />
         <CarouselContent>
           <CarouselItem className="flex items-start justify-center">
             <JobCard companyLogo={"/images/companies/zoan.jpg"}
@@ -35,16 +37,12 @@ const ExperienceCarousel = ({ showNavigation }: CarouselProps) => {
               description={"As a Software and XR Developer at Probot Oy, I was involved in a wide array of tasks that span across software development, XR applications, and robotics. My role was a blend of design, development, and mentorship, where I got to apply my skills and passion for technology to create innovative solutions and share my knowledge with others."}
               badges={["Unreal", "Blender", "TypeScript", "React", "ThreeJS"]}
               companyLink={"https://probot.fi/"}
+              showGuide={false}
             />
           </CarouselItem>
         </CarouselContent>
-        {showNavigation &&
-          <>
-            <CarouselPrevious variant={"ghost"} />
-            <CarouselNext variant={"ghost"} />
-          </>
-        }
       </Carousel>
+
     </div>
   )
 }

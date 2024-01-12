@@ -1,13 +1,12 @@
 import { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useCursor } from '@react-three/drei'
-import { RingGeometry } from 'three'
 
-type SpinningBoxProps = {
+type SpinningObjectProps = {
     scale: number
 } & JSX.IntrinsicElements['mesh']
 
-export function SpinningBox({ scale, ...props }: SpinningBoxProps) {
+export function SpinningObject({ scale, ...props }: SpinningObjectProps) {
     // This reference gives us direct access to the THREE.Mesh object
     const ref = useRef<any>()
     // Hold state for hovered and clicked events
@@ -21,12 +20,12 @@ export function SpinningBox({ scale, ...props }: SpinningBoxProps) {
         <mesh
             {...props}
             ref={ref}
-            scale={clicked ? scale * 1.4 : scale * 1.2}
+            scale={0.4}
             onClick={(event) => click(!clicked)}
             onPointerOver={(event) => hover(true)}
             onPointerOut={(event) => hover(false)}>
             <torusGeometry />
-            {hovered ? <meshNormalMaterial wireframe /> : <meshNormalMaterial />}
+            {clicked ? <meshNormalMaterial wireframe /> : <meshNormalMaterial />}
         </mesh>
     )
 }

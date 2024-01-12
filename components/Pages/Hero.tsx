@@ -3,6 +3,7 @@
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 import * as Typography from "../Typography/Typography";
+import { ChevronDoubleDownIcon } from '@heroicons/react/24/solid'
 
 const Hero = () => {
     const [text, count] = useTypewriter({

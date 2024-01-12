@@ -29,7 +29,7 @@ const Scene = ({ onScrollChange }: SceneProps) => {
     const { camera } = useThree()
     const { setScrollState, experienceEnabled, musicPlaying, setMusicPlaying, setScrollValue } = useStore()
     const positionalAudioRef = useRef<any>();
-    const volume = 0.00175;
+    const volume = 0.01;
 
     useEffect(() => {
         if (!positionalAudioRef.current) return;
@@ -121,6 +121,11 @@ const App = () => {
             setShowScrollDownGuide(false)
         }
     }
+
+    useEffect(() => {
+        if (!experienceEnabled) return;
+        setMusicPlaying(true)
+    }, [experienceEnabled])
 
     useEffect(() => {
         const handleVisibilityChange = () => {

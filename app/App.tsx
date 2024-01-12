@@ -115,31 +115,12 @@ const App = () => {
     const [showScrollDownGuide, setShowScrollDownGuide] = useState<boolean>(true)
 
     function onScrollChanged(value: number) {
-        if (value < 0.1) {
+        if (value < 0.05) {
             setShowScrollDownGuide(true)
         } else {
             setShowScrollDownGuide(false)
         }
     }
-
-    useEffect(() => {
-        if (!scrollValue) return
-        if (scrollValue < 0.1) {
-            setShowScrollDownGuide(true)
-        } else {
-            setShowScrollDownGuide(false)
-        }
-    }, [scrollValue])
-
-    useEffect(() => {
-        if (!scrollState) return
-        console.log(scrollState.offset)
-        if (scrollState.offset < 0.1) {
-            setShowScrollDownGuide(true)
-        } else {
-            setShowScrollDownGuide(false)
-        }
-    }, [scrollState])
 
     useEffect(() => {
         const handleVisibilityChange = () => {
@@ -156,7 +137,7 @@ const App = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 3.5, duration: 1 }}
-                className="absolute bottom-0 left-1/2 -translate-x-1/2 mb-40">
+                className="absolute bottom-10 lg:bottom-24 left-1/2 -translate-x-1/2 ">
                 <ChevronDoubleDownIcon className="animate-bounce w-10 h-10 text-white" />
             </motion.div>
         )
@@ -171,14 +152,14 @@ const App = () => {
                             <Scene onScrollChange={onScrollChanged} />
                         </Suspense>
                         <Scroll html>
-                            <div className="w-screen h-screen flex items-center justify-center pt-64">
+                            <div className="w-screen h-screen flex items-center justify-center pt-40">
                                 {experienceEnabled && <Hero />}
                             </div>
-                            <div className="flex flex-col h-full gap-40">
-                                <div className="w-screen h-screen flex items-center justify-center">
+                            <div className="flex flex-col h-full gap-36">
+                                <div className="w-screen flex items-center justify-center">
                                     <ExperienceCarousel showNavigation={true} />
                                 </div >
-                                <div className="w-screen h-screen flex items-center justify-center">
+                                <div className="w-screen flex items-center justify-center">
                                     <ProjectsCarousel showNavigation={true} />
                                 </div>
                             </div>

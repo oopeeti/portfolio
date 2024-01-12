@@ -39,10 +39,10 @@ const ExperienceCard = ({ company, companyLogo, title, workTime, description, co
                 <Image
                     src={companyLogo}
                     alt="logo"
-                    width={0}
-                    height={0}
+                    width={100}
+                    height={100}
                     layout={"responsive"}
-                    className="max-w-[100px] lg:max-w-[150px] rounded-full"
+                    className="max-w-[100px] lg:max-w-[100px] rounded-full"
                 />
                 <Typography.H3>{title}</Typography.H3>
                 <Badges />
@@ -56,7 +56,7 @@ const ExperienceCard = ({ company, companyLogo, title, workTime, description, co
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3.5, duration: 1 }}
-                    className="justify-self-end w-full flex flex-row justify-end pr-5"
+                    className="justify-self-end w-full flex flex-row justify-end pr-10 pb-5"
                 >
                     <ChevronDoubleRightIcon className="animate-bounce w-10 h-10 text-white" />
                 </motion.div>

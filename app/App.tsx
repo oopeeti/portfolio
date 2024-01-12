@@ -17,7 +17,6 @@ import { useStore } from "./store"
 import Avatar from "@/components/Avatar"
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid"
 import { motion } from "framer-motion"
-import { set } from "zod"
 
 type SceneProps = {
     onScrollChange: (value: number) => void
@@ -112,7 +111,7 @@ const Scene = ({ onScrollChange }: SceneProps) => {
 
 const App = () => {
     const { experienceEnabled, setMusicPlaying, scrollState, scrollValue } = useStore()
-    const [dpr, setDpr] = useState<number>(1.5)
+    const [dpr, setDpr] = useState<number>(1)
     const [showScrollDownGuide, setShowScrollDownGuide] = useState<boolean>(true)
 
     function onScrollChanged(value: number) {
@@ -187,7 +186,7 @@ const App = () => {
                         </Scroll>
                     </ScrollControls>
                     {/* <CameraControls /> */}
-                    <PerformanceMonitor onDecline={() => setDpr(1.25)} onIncline={() => setDpr(1.5)} />
+                    <PerformanceMonitor onDecline={() => setDpr(1)} onIncline={() => setDpr(1.5)} />
                     <Preload all />
                 </Canvas >
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-white flex flex-row justify-center items-center gap-5 px-3 rounded-full mt-5">

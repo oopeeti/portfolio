@@ -1,31 +1,18 @@
 import { PerspectiveCamera, RenderTexture, useGLTF, Text, Sphere, Cylinder, Merged } from "@react-three/drei"
-import { createContext, use, useContext, useEffect, useMemo, useRef, useState } from "react"
-import { MeshPhysicalMaterial, Vector3 } from "three"
+import { useEffect, useMemo, useRef, useState } from "react"
+import { MeshPhysicalMaterial } from "three"
 import { GroupProps, context, useFrame, useThree } from "@react-three/fiber"
 import gsap from "gsap"
 import { useStore } from "@/app/store"
 import { SpinningObject } from "./SpinningObject"
 
-const objects = {
-    Keyboard: "Object_4",
-    PC: "Object_16",
-    SmallPC: "Object_28",
-    Monitor: "Object_206",
-    MonitorScreen: "Object_207",
-    Monitor2: "Object_215",
-    MonitorScreen2: "Object_216",
-}
-
 export function Computers({ ...props }: GroupProps) {
     const { setExperienceEnabled, experienceEnabled } = useStore()
-
     return (
         <group {...props}>
             <InteractiveComputer frame="Object_206" panel="Object_207" />
             {/* <TextComputer text={"Hello World"} frame="Object_212" panel="Object_213" x={-5} y={5} position={[-2.73, 2, 1]} rotation={[-0.1, 1.09, 0]} textRotation={[0, 0, 0]} /> */}
             <Keyboard position={[3, -2, -0.52]} rotation={[-0.1, 1.09, 0]} scale={0.5} />
-            <Model geometry={objects.Keyboard} position={[2.5, 1, 0]} rotation={[-0.1, 1.09, 0]} scale={0.5} />
-            <Model geometry={objects.PC} position={[-2.73, 0.2, 1]} rotation={[-0.1, 1.09, 0]} scale={1} />
             {!experienceEnabled && <Start onStart={() => setExperienceEnabled(true)} scale={0.4} position={[0, 0.61, 0]} />}
         </group>
     )
@@ -269,29 +256,6 @@ function Keyboard({ ...props }: GroupProps) {
     return (
         <group {...props} ref={computerRef}>
             <mesh castShadow receiveShadow geometry={nodes["Object_4"].geometry} material={materials.Texture} />
-        </group>
-    )
-}
-
-type ModelProps = {
-    geometry: string
-} & JSX.IntrinsicElements['group']
-
-function Model({ geometry, ...props }: ModelProps) {
-    const { nodes, materials } = useGLTF('/models/computers_1-transformed.glb') as any
-    const computerRef = useRef<any>()
-
-    useFrame((state, delta) => {
-        const t = state.clock.getElapsedTime()
-        if (computerRef.current) {
-            computerRef.current.rotation.set(Math.cos(t / 4) / 3, Math.sin(t / 3) / 2, 0.15 + Math.sin(t / 2) / 4)
-            computerRef.current.position.z = (5 + Math.cos(t / 2)) / 7
-        }
-    })
-
-    return (
-        <group {...props} ref={computerRef}>
-            {nodes[geometry] && <mesh castShadow receiveShadow geometry={nodes[geometry].geometry} material={materials.Texture} />}
         </group>
     )
 }

@@ -39,7 +39,7 @@ export function H4({ children, className }: ElementType) {
 
 export function P({ children, className }: ElementType) {
     return (
-        <p className={cn("leading-7 [&:not(:first-child)]:mt-6 text-sm md:text-md")}>
+        <p className={cn(" [&:not(:first-child)]:mt-6 text-sm leading-6 md:text-md")}>
             {children}
         </p>
     )

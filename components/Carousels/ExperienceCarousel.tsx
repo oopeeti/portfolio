@@ -1,20 +1,24 @@
 import JobCard from "./ExperienceCard";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
 import * as Typography from "../Typography/Typography"
+import { useState } from "react";
+import CarouselSelector from "./CarouselSelector";
 
-type CarouselProps = {
-  showNavigation: boolean
-}
 
-const ExperienceCarousel = ({ showNavigation }: CarouselProps) => {
+const ExperienceCarousel = () => {
+  const [api, setApi] = useState<any>()
+
   return (
     <div className="flex flex-col items-center gap-2 h-full justify-center">
       <Typography.H1 className=" py-2 px-4 self-center lg:self-start text-white border-l-0 lg:border-l-2 border-b-2">Experience</Typography.H1>
+      <CarouselSelector amount={2} className="gap-3 flex flex-row" api={api} />
       <Carousel className="max-w-3xl"
         opts={{
           align: "start",
           loop: false,
-        }}>
+        }}
+        setApi={setApi}
+      >
         <CarouselPrevious variant={"outline"} className="text-black bg-white hover:text-white hover:bg-black border-0" />
         <CarouselNext variant={"outline"} className="text-black bg-white hover:text-white hover:bg-black border-0" />
         <CarouselContent>
@@ -37,7 +41,6 @@ const ExperienceCarousel = ({ showNavigation }: CarouselProps) => {
               description={"As a Software and XR Developer at Probot Oy, I was involved in a wide array of tasks that span across software development, XR applications, and robotics. My role was a blend of design, development, and mentorship, where I got to apply my skills and passion for technology to create innovative solutions and share my knowledge with others."}
               badges={["Unreal", "Blender", "TypeScript", "React", "ThreeJS"]}
               companyLink={"https://probot.fi/"}
-              showGuide={false}
             />
           </CarouselItem>
         </CarouselContent>

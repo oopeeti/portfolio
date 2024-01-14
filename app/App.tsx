@@ -162,10 +162,10 @@ const App = () => {
                             </div>
                             <div className="flex flex-col h-full gap-36">
                                 <div className="w-screen flex items-center justify-center">
-                                    <ExperienceCarousel showNavigation={true} />
+                                    <ExperienceCarousel />
                                 </div >
                                 <div className="w-screen flex items-center justify-center">
-                                    <ProjectsCarousel showNavigation={true} />
+                                    <ProjectsCarousel />
                                 </div>
                             </div>
 

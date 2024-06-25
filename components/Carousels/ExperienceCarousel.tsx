@@ -27,8 +27,8 @@ const ExperienceCarousel = () => {
               company={"ZOAN"}
               title={"Software Engineer (Web, Unreal Engine)"}
               workTime={"August 2023 - Present"}
-              description={"At Zoan, I meld web development with game creation, crafting engaging 3D experiences. My expertise lies in 3D web app development using TypeScript and Three.js, and creating immersive games with Unreal Engine 5. I specialize in integrating high-end 3D content into web browsers through Unreal Engine's Pixel Streaming. My role involves 3D modeling, project management, and pushing the boundaries of digital experiences. My focus is on innovation, aesthetics, and seamless user experiences."}
-              badges={["Unreal", "Blender", "TypeScript", "React", "ThreeJS"]}
+              description={"At Zoan, I meld web development with game creation, crafting engaging 3D experiences. My expertise lies in 3D web app development using TypeScript and Three.js, and creating immersive games with Unreal Engine 5. I specialize in integrating high-end 3D content into web browsers through Unreal Engine's Pixel Streaming. My role involves software engineering, 3D modeling, project management, and pushing the boundaries of digital experiences. My focus is on innovation, aesthetics, and seamless user experiences."}
+              badges={["TypeScript", "Unreal", "Blender", "React", "ThreeJS"]}
               companyLink={"https://zoan.com/"}
             />
           </CarouselItem>

@@ -85,7 +85,7 @@ const ProjectsCarousel = () => {
             <ProjectCard
               title={"Product Comparison Tool for a Leading Fashion Brand"}
               imageSrc={"/images/projects/project-fashion.png"}
-              description={"Developed a cutting-edge 3D Web product comparison tool for a renowned fashion brand, revolutionizing internal tooling. This project involved a fusion of full-stack web development and 3D modeling, leveraging technologies like Three.js, React-three-fiber and Next.js. The system allowed users to interact with high-quality 3D models of the brand's latest collection, featuring dynamic product selection and video-textured materials for enhanced realism."}
+              description={"Developed a cutting-edge 3D Web product comparison tool for a renowned Sports fashion brand, revolutionizing internal tooling. This project involved a fusion of full-stack web development and 3D modeling, leveraging technologies like Three.js, React-three-fiber and Next.js. The system allows users to interact with high-quality 3D models of the brand's latest collection to compare their manufacturing technologies, featuring dynamic product selection and video-textured materials for enhanced realism."}
               badges={ComparisonToolBadges}
             />
           </CarouselItem>
@@ -102,7 +102,7 @@ const ProjectsCarousel = () => {
             <ProjectCard
               title={"Luxury Jewelry Brand Metaverse Experience"}
               imageSrc={"/images/projects/project-luxury.png"}
-              description={"In this innovative project for a luxury European jewelry brand, I played a crucial role in creating an immersive metaverse experience using Unreal Engine 5. The project featured an internal competition with an NFT award and was accessible via Pixel Streaming technology for easy web integration. My responsibilities included developing the game logic and seamlessly integrating Unreal Engine 5 with the web interface, focusing on both technical efficiency and engaging gameplay. This project highlighted my skills in advanced game development and my ability to combine luxury branding with cutting-edge technology to produce a captivating virtual environment."}
+              description={"In this innovative project for a luxury European jewelry brand, I played a crucial role in creating an immersive metaverse experience using Unreal Engine 5. The project featured an internal competition with an NFT award and was accessible via Pixel Streaming technology for easy web integration. My responsibilities included developing the game logic and seamlessly integrating Unreal Engine 5 with the web interface, focusing on both technical efficiency and engaging gameplay. This project highlighted my skills in advanced game development and my ability to combine luxury branding, with cutting-edge technology to produce a captivating virtual environment and immersive story telling."}
               badges={LuxuryMetaverseBadges} />
           </CarouselItem>
 

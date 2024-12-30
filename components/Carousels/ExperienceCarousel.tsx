@@ -11,7 +11,7 @@ const ExperienceCarousel = () => {
   return (
     <div className="flex flex-col items-center gap-2 h-full justify-center">
       <Typography.H1 className=" py-2 px-4 self-center lg:self-start text-white border-l-0 lg:border-l-2 border-b-2">Experience</Typography.H1>
-      <CarouselSelector amount={2} className="gap-3 flex flex-row" api={api} />
+      <CarouselSelector amount={3} className="gap-3 flex flex-row" api={api} />
       <Carousel className="max-w-3xl"
         opts={{
           align: "start",
@@ -23,10 +23,21 @@ const ExperienceCarousel = () => {
         <CarouselNext variant={"outline"} className="text-black bg-white hover:text-white hover:bg-black border-0" />
         <CarouselContent>
           <CarouselItem className="flex items-start justify-center">
-            <JobCard companyLogo={"/images/companies/zoan.jpg"}
+            <JobCard
+              company={"Sprint AI"}
+              title={"XR Developer"}
+              workTime={"September 2024 - Present"}
+              description={"Building an revolutionary professional athlete training and coaching platform leveraging AI and XR"}
+              badges={["Unreal"]}
+              companyLink={"https://www.sprint.ai/"}
+            />
+          </CarouselItem>
+
+          <CarouselItem className="flex items-start justify-center">
+            <JobCard
               company={"ZOAN"}
               title={"Software Engineer (Web, Unreal Engine)"}
-              workTime={"August 2023 - Present"}
+              workTime={"August 2023 - August 2024"}
               description={"At Zoan, I meld web development with game creation, crafting engaging 3D experiences. My expertise lies in 3D web app development using TypeScript and Three.js, and creating immersive games with Unreal Engine 5. I specialize in integrating high-end 3D content into web browsers through Unreal Engine's Pixel Streaming. My role involves software engineering, 3D modeling, project management, and pushing the boundaries of digital experiences. My focus is on innovation, aesthetics, and seamless user experiences."}
               badges={["TypeScript", "Unreal", "Blender", "React", "ThreeJS"]}
               companyLink={"https://zoan.com/"}
@@ -34,7 +45,7 @@ const ExperienceCarousel = () => {
           </CarouselItem>
 
           <CarouselItem className="flex items-start justify-center">
-            <JobCard companyLogo={"/images/companies/probot.png"}
+            <JobCard
               company={"Probot Oy"}
               title={"Software Engineer, XR Developer"}
               workTime={"April, 2021 - August, 2023 (2,5 years)"}

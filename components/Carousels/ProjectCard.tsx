@@ -19,7 +19,7 @@ type JobCardProps = {
 const ProjectCard = ({ title, imageSrc, description, projectLink, badges }: JobCardProps) => {
     return (
         <>
-            <Card className={`flex flex-col w-full max-w-[25rem] lg:max-w-full bg-black/15 rounded-lg overflow-hidden border-none text-white select-none`}>
+            <Card className={`flex flex-col w-full max-w-[25rem] lg:max-w-full bg-black/50 rounded-lg overflow-hidden border-none text-white select-none`}>
                 <Image
                     src={imageSrc}
                     alt={""}

@@ -47,7 +47,7 @@ export function P({ children, className }: ElementType) {
 
 export function Blockquote({ children, className }: ElementType) {
     return (
-        <blockquote className={cn("mt-6 border-l-2 pl-6 italic", className)}>
+        <blockquote className={cn("mt-3 border-l-2 pl-6 italic", className)}>
             {children}
         </blockquote >
     )
@@ -55,7 +55,7 @@ export function Blockquote({ children, className }: ElementType) {
 
 export function Italic({ children, className }: ElementType) {
     return (
-        <blockquote className={cn("mt-6 italic", className)}>
+        <blockquote className={cn("mt-3 italic", className)}>
             {children}
         </blockquote >
     )

@@ -59,7 +59,7 @@ const ProjectsCarousel = () => {
 
   return (
     <div className="flex flex-col items-center justify-start gap-5 h-full">
-      <Typography.H1 className="py-2 px-4 self-center lg:self-end  text-white border-l-0 lg:border-r-2 border-b-2">Projects</Typography.H1>
+      <Typography.H1 className="py-2 px-4 self-center lg:self-end  text-white border-l-0 lg:border-r-2 border-b-2">Showcase Projects</Typography.H1>
       <CarouselSelector amount={6} className="gap-3 flex flex-row" api={api} />
       <Carousel className="max-w-2xl"
         opts={{

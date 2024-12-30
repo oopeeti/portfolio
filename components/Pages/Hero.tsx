@@ -20,7 +20,7 @@ const Hero = () => {
                 transition={{ delay: 1, duration: 1.5 }}
                 className="flex justify-center items-center select-none">
                 <div className="flex flex-col items-center gap-3 justify-center scale-100 text-white w-full rounded-lg">
-                    <Typography.Italic>Software Engineer, UE Developer</Typography.Italic>
+                    <Typography.Italic>Software Engineer, XR Developer</Typography.Italic>
                     <Typography.H1 className="text-2xl lg:text-4xl">
                         <span className="mr-1">{text}</span>
                         <Cursor cursorColor="#F7AB0A" />

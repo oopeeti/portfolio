@@ -22,9 +22,9 @@ const ExperienceCard = ({ company, title, workTime, description, companyLink, ba
         return (
             <div className="flex flex-col items-center">
                 <Typography.Italic>Technologies</Typography.Italic>
-                <div className="flex pt-5 flex-row space-x-2">
+                <div className="flex pt-5 flex-col space-x-0 space-y-2 lg:flex-row lg:space-y-0 lg:space-x-2">
                     {badges.map((badge, index) =>
-                        <Badge key={index} variant={"outline"} className="flex items-center justify-center bg-white text-md px-3 text-black">{badge}</Badge>
+                        <Badge key={index} variant={"outline"} className="flex items-center justify-center bg-white text-sm text-black">{badge}</Badge>
                     )}
                 </div>
 
@@ -41,8 +41,8 @@ const ExperienceCard = ({ company, title, workTime, description, companyLink, ba
                     <Typography.Italic>{workTime}</Typography.Italic>
                 </div>
 
-                <CardContent className="flex flex-col pt-0 space-y-10 items-center px-20">
-                    <Typography.P>{description}</Typography.P>
+                <CardContent className="flex flex-col space-y-10 items-center px-15">
+                    <Typography.P >{description}</Typography.P>
                     <Badges />
                 </CardContent>
             </Card >

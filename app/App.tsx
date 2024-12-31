@@ -88,11 +88,6 @@ const Scene = ({ onScrollChange }: SceneProps) => {
                 <primitive object={camera} {...cameraSpring} />
             </animated.group>
             <Stars />
-            <EffectComposer>
-                <Bloom luminanceThreshold={0} mipmapBlur luminanceSmoothing={1} intensity={0.2} />
-                {/* <DepthOfField target={[0, 0, 13]} focalLength={0.3} bokehScale={15} height={700} /> */}
-                <Noise opacity={0.1} />
-            </EffectComposer>
             <group>
                 <PositionalAudio
                     url="/music/retrobg.mp3"
@@ -133,7 +128,7 @@ const App = () => {
         }
 
         document.addEventListener('visibilitychange', handleVisibilityChange);
-        return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+        return () => document.removeEventListener('visibilitychge', handleVisibilityChange);
     })
 
     const ScrollDownGuide = () => {

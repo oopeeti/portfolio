@@ -41,7 +41,7 @@ const ExperienceCard = ({ company, title, workTime, description, companyLink, ba
                     <Typography.Italic>{workTime}</Typography.Italic>
                 </div>
 
-                <CardContent className="flex flex-col space-y-10 items-center px-15">
+                <CardContent className="flex flex-col space-y-10 items-center px-14">
                     <Typography.P >{description}</Typography.P>
                     <Badges />
                 </CardContent>

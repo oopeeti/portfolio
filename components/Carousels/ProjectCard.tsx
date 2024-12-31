@@ -22,11 +22,12 @@ const ProjectCard = ({ title, imageSrc, description, projectLink, badges }: JobC
             <Card className={`flex flex-col w-full max-w-[25rem] lg:max-w-full bg-black/50 rounded-lg overflow-hidden border-none text-white select-none`}>
                 <Image
                     src={imageSrc}
-                    alt={""}
+                    alt={title}
                     width={500}
                     height={300}
-                    layout={"responsive"}
+                    layout="responsive"
                     className="object-cover max-h-[300px]"
+                    priority
                 />
 
                 <CardContent className="flex flex-col pt-4">
